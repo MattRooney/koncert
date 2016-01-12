@@ -1,10 +1,10 @@
 <nav id="primary-navigation">
   <div class="nav-wrapper black">
     <ul class="left hide-on-med-and-down">
-       <li><a href="/" class="cyan-text text-accent-2 brand-logo"><i class="material-icons left cyan-text text-accent-2">album</i>Khancert</a></li>
+       <li><a href="/" class="cyan-text text-accent-2 brand-logo"><i class="material-icons left cyan-text text-accent-2">queue_music</i>Khancert</a></li>
      </ul>
     <ul id="nav-mobile" class="right hide-on-med-and-down offset-s1">
-      <li><%= link_to "Login with Spotify", login_path, class: "cyan-text text-accent-2" %></li>
+      <li><%= link_to "Login with Spotify", '/auth/spotify', class: "cyan-text text-accent-2" %></li>
       <li><%= link_to "Create Account", root_path, class: "cyan-text text-accent-2" %></li>
     </ul>
   </div>
