@@ -22,5 +22,10 @@ module LiveList
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.sass.preferred_syntax = :sass
+    config.sass.line_comments = false
+    config.sass.cache = false
+    RSpotify::authenticate(ENV["spotify_api_key"], ENV["spotify_api_secret"])
+    Bandsintown.app_id = "Khancert"
   end
 end
