@@ -11,10 +11,17 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'figaro'
 gem 'rspotify'
 gem 'hurley'
+gem 'mocha'
 
 group :development, :test do
   gem 'byebug'
   gem 'pry'
+end
+
+group :test do
+  # gem 'webmock'
+  gem 'vcr'
+  gem 'simplecov', :require => false
 end
 
 group :development do

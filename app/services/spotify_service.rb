@@ -6,12 +6,11 @@ class SpotifyService
   end
 
   def profile_image
-    binding.pry
     client.images.first["url"]
   end
 
   def total_followers
-    client.followers["total"]
+      client.followers["total"]
   end
 
   def artists_followed
@@ -24,6 +23,10 @@ class SpotifyService
 
   def following?(artist)
     client.follows?(RSpotify::Artist.search(artist).first)
+  end
+
+  def playlists
+    client.playlists
   end
 
   def create_playlist(title)
