@@ -9,6 +9,6 @@ class ApplicationController < ActionController::Base
   end
 
   def spotify_service
-    @spotify_service ||= RSpotify::User.new(session[:auth_info]) if session[:auth_info]
+    @spotify_service ||= SpotifyService.new(session[:auth_info]) if session[:auth_info]
   end
 end
