@@ -5,8 +5,8 @@ class BandsInTownService
     @connection = Hurley::Client.new("http://api.bandsintown.com/")
   end
 
-  def events(city)
-    parse_json(connection.get("events/search.json?location=#{city}"))
+  def events(location)
+    parse_json(connection.get("events/search.json?location=#{location}"))
   end
 
   private
