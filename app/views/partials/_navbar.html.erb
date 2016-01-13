@@ -4,7 +4,11 @@
        <li><a href="/" class="cyan-text text-accent-2 brand-logo"><i class="material-icons left cyan-text text-accent-2">queue_music</i>Khancert</a></li>
      </ul>
     <ul id="nav-mobile" class="right hide-on-med-and-down offset-s1">
+      <% if current_user %>
+      <li><%= link_to "Logout", logout_path, class: "cyan-text text-accent-2" %></li>
+        <% else %>
       <li><%= link_to "Login with Spotify", '/auth/spotify', class: "cyan-text text-accent-2" %></li>
+        <% end %>
       <li><%= link_to "About", root_path, class: "cyan-text text-accent-2" %></li>
     </ul>
   </div>
