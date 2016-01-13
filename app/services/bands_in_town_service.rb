@@ -9,6 +9,15 @@ class BandsInTownService
     parse_json(connection.get("events/search.json?location=#{location}"))
   end
 
+
+  # def boston_events
+  #   Bandsintown::Event.search({
+  #     :location => 'Boston, MA',
+  #     :start_date => Time.now,
+  #     :end_date => 1.week.from_now
+  #   })
+  # end
+
   private
 
   def parse_json(response)
