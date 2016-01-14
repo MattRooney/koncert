@@ -16,7 +16,6 @@ class PlaylistsController < ApplicationController
         RSpotify::Artist.search(artist).first.top_tracks(:us).first
     end
     spotify_tracks = tracks.delete_if { |track| track == nil }
-    binding.pry
     playlist = spotify_service.create_playlist(params[:playlist][:location]+" #{Time.now.strftime("%m/%d/%Y")}")
     found_playlist = RSpotify::Playlist.find(current_user.spotify_id, playlist.id)
     found_playlist.add_tracks!(spotify_tracks)
