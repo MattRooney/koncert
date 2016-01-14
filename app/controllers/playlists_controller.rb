@@ -26,4 +26,8 @@ class PlaylistsController < ApplicationController
     @playlist = spotify_service.playlists.first
   end
 
+  def destroy
+
+  end
+
 end

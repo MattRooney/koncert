@@ -6,17 +6,10 @@ class BandsInTownService
   end
 
   def events(location)
-    parse_json(connection.get("events/search.json?location=#{location}&app_id=KONCERT"))
+    url_location = location.gsub(" ", "%20")
+    parse_json(connection.get("events/search.json?location=#{url_location}&app_id=KONCERT"))
   end
 
-
-  # def boston_events
-  #   Bandsintown::Event.search({
-  #     :location => 'Boston, MA',
-  #     :start_date => Time.now,
-  #     :end_date => 1.week.from_now
-  #   })
-  # end
 
   private
 
