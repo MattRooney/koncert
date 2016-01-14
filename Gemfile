@@ -12,6 +12,12 @@ gem 'figaro'
 gem 'rspotify'
 gem 'hurley'
 gem 'mocha'
+# gem 'webmock'
+# File: config/initializers/webmock.rb
+# if Rails.env.test?
+#   require 'webmock'
+#   WebMock.disable_net_connect!(allow_localhost: true)
+# end
 
 group :development, :test do
   gem 'byebug'
@@ -19,7 +25,6 @@ group :development, :test do
 end
 
 group :test do
-  # gem 'webmock'
   gem 'vcr'
   gem 'simplecov', :require => false
 end
