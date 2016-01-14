@@ -25,6 +25,5 @@ module LiveList
     config.sass.preferred_syntax = :sass
     config.sass.line_comments = false
     config.sass.cache = false
-    RSpotify::authenticate(ENV["spotify_api_key"], ENV["spotify_api_secret"])
   end
 end
