@@ -1,27 +1,7 @@
 <h4>Enter your location to create a playlist</h4>
 
-<div class="row">
-  <form class="col s12">
-    <%= form_for(@playlist) do |f| %>
-    <div class="row">
-      <div class="input-field col s6 offset-s3">
-        <i class="material-icons prefix">location_on</i>
-        <%= f.label :location, "City, ST" %>
-        <%= f.text_field :location %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="input-field col s6 offset-s3">
-        <i class="material-icons prefix">schedule</i>
-        <%= f.label :number_of_days %>
-        <%= f.number_field :number_of_days %>
-        <%= f.submit "Generate Playlist", class: "btn-large cyan accent-2 black-text" %>
-      </div>
-    </div>
-
-        <% end %>
-      </div>
-    </div>
-  </form>
-</div>
+<%= form_for @playlist, url: {action: "create"} do |f| %>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+  <%= f.submit "Generate Playlist ", class: "btn" %>
+<% end %>

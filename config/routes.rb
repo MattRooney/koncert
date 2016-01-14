@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   get '/auth/spotify/callback', to: 'sessions#create'
   get '/logout', to: "sessions#destroy", as: :logout
   get '/about', to: "home#show", as: :about
-  resources :playlists, only: [:new, :show]
   resources :users, only: [:show]
+  resources :playlists
 end
