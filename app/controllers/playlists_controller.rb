@@ -6,4 +6,8 @@ class PlaylistsController < ApplicationController
     @playlist = Playlist.new(location)
   end
 
+  def show
+    @playlist = "Playlist"
+  end
+
 end
