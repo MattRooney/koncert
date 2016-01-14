@@ -19,7 +19,7 @@ class PlaylistsController < ApplicationController
     playlist = spotify_service.create_playlist(params[:playlist][:location]+" #{Time.now.strftime("%m/%d/%Y")}")
     found_playlist = RSpotify::Playlist.find(current_user.spotify_id, playlist.id)
     found_playlist.add_tracks!(spotify_tracks)
-    redirect_to "/playlists/1"
+    redirect_to playlist_path(current_user.id)
   end
 
   def show

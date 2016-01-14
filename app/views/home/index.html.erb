@@ -4,4 +4,8 @@
   Automatically generate a playlist of bands with upcoming shows in your city.
 </h5>
 
-<%= link_to 'Sign in with Spotify', '/auth/spotify',  class: "btn-large cyan accent-2 black-text" %>
+<% if current_user %>
+  <%= link_to "Create a Playlist", new_playlist_path, class: "btn-large cyan accent-2 black-text" %>
+<% else %>
+  <%= link_to 'Sign in with Spotify', login_path,  class: "btn-large cyan accent-2 black-text" %>
+<% end %>
