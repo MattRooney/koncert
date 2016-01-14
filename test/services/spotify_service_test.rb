@@ -41,7 +41,6 @@ class SpotifyServiceTest < ActiveSupport::TestCase
   test "#profile_image" do
     # VCR.use_cassette("spotify_service#user") do
       assert service.profile_image
-      binding.pry
   end
 
   test "#total_followers" do
@@ -63,7 +62,6 @@ class SpotifyServiceTest < ActiveSupport::TestCase
   end
 
   test "#playlists" do
-    binding.pry
     assert service.playlists
     assert_kind_of Array, service.playlists
     assert_equal 20, service.playlists.count

@@ -12,6 +12,7 @@ gem 'figaro'
 gem 'rspotify'
 gem 'hurley'
 gem 'mocha'
+gem 'skylight'
 
 group :development, :test do
   gem 'byebug'

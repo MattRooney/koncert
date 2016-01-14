@@ -34,7 +34,7 @@ class SpotifyService
   end
 
   def top_track(artist)
-    @top_track = RSpotify::Artist.search('artist').first.top_tracks(:us).first
+    RSpotify::Artist.search(artist).first.top_tracks(:us).first
   end
 
 end
