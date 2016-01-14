@@ -34,6 +34,7 @@ class SpotifyServiceTest < ActiveSupport::TestCase
 
   def setup
     create_user
+    RSpotify::authenticate(ENV["spotify_api_key"], ENV["spotify_api_secret"])
     @service = SpotifyService.new(test_user_hash)
   end
 
@@ -61,6 +62,7 @@ class SpotifyServiceTest < ActiveSupport::TestCase
   end
 
   test "#playlists" do
+    binding.pry
     assert service.playlists
     assert_kind_of Array, service.playlists
     assert_equal 20, service.playlists.count
