@@ -11,8 +11,8 @@ class BandsInTownService
   end
 
   def on_sale_soon
-    events = parse_json(connection.get("events/on_sale_soon.json?app_id=KONCERT"))
-    events.sample(5)
+    events = parse_json(connection.get("events/on_sale_soon.json?location=use_geoip&app_id=KONCERT"))
+    events.first(5)
   end
 
   private

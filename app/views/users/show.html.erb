@@ -15,10 +15,19 @@
   </div>
 
   <div class="col s7">
+    <ul class="collection">
     <% @events.each do |event| %>
-      <%= event[:artists].first[:name] %>
-      <%= event[:venue][:city] %>
-      <%= event[:ticket_url] %>
-      <% end %>
+      <li class="collection-item trans-card cyan-text text-accent-2">
+        <span class="title"><%= event[:artists].first[:name] %></span>
+        <p><%= event[:venue][:name] %><br>
+          <%= event[:venue][:city] %>, <%= event[:venue][:region] %>
+        </p>
+        <%= link_to "Tickets", event[:ticket_url], class: "secondary-content btn cyan accent-2 black-text" %>
+      </li>
+      <br>
+    <% end %>
+
+  </ul>
+
   </div>
 </div>
