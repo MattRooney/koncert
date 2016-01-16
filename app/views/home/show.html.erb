@@ -1,14 +1,20 @@
 <div class="row">
   <div class="col s12">
-    <div class="col s6 offset-s3 card black">
-      <div class="card-content white-text">
-        <span class="card-title">About Koncert</span>
-        <p>Koncert is my final project for the Turing School's third module. </p>
+      <div class="col s6 offset-s3 card trans-card">
+        <div class="card-content white-text">
+          <h4>About Koncert</h4>
+          <p>Koncert consumes the Bandsintown API to find artists with upcoming
+            concerts in your area and then uses the Spotify API to create
+            playlists from those artists' top Spotify tracks.</p>
+            <br>
+          <p>Koncert is my final project for the Turing School of Software and
+            Design's third module.</p>
+        </div>
+        <div class="card-action">
+          <%= link_to "Home", root_path, class: "cyan-text text-accent-2" %>
+          <a class="cyan-text text-accent-2" href="http://www.github.com/MattRooney/koncert">GitHub Repo</a>
+          <%= link_to "Turing", "https://www.turing.io", class: "cyan-text text-accent-2" %>
+        </div>
       </div>
-      <div class="card-action">
-        <%= link_to "Home", root_path, class: "cyan-text text-accent-2" %>
-        <a class="cyan-text text-accent-2" href="http://www.github.com/MattRooney/koncert">GitHub Repo</a>
-      </div>
-    </div>
   </div>
 </div>

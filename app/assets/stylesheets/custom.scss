@@ -15,8 +15,9 @@ body {
 .trans-card {
   background: rgb(54, 25, 25); /* Fall-back for browsers that don't support rgba */
   background: rgba(black, 0.8) !important;
+  padding-bottom: 20px;
+  padding-top: 1px;
 }
-
 .trans-card h3 {
-    color: #000000;
+  color: #000000;
   }

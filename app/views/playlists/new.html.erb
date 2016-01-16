@@ -1,7 +1,18 @@
-<h4>Enter your location to create a playlist</h4>
+<div class="row">
+  <div class="col s8 offset-s2">
+    <div class="card trans-card white-text">
+    <br>
+    <h4>Enter a city to create a playlist</h4>
 
-<%= form_for Playlist.new, url: {action: "create"} do |f| %>
-  <%= f.label :location %>
-  <%= f.text_field :location %>
-  <%= f.submit "Generate Playlist ", class: "btn" %>
-<% end %>
+      <div class="row">
+        <div class="col s6 offset-s3 input-field">
+          <%= form_for Playlist.new, url: {action: "create"} do |f| %>
+            <%= f.label :location, "City, ST" %>
+            <%= f.text_field :location %>
+            <%= f.submit "Generate Playlist ", class: "btn-large cyan accent-2 black-text" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
