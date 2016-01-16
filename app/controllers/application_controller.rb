@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
   end
 
   def spotify_service
-    RSpotify::authenticate(ENV["spotify_api_key"], ENV["spotify_api_secret"])
-    @spotify_service ||= SpotifyService.new(session[:auth_info]) if session[:auth_info]
+    @spotify_service ||= SpotifyService.new(session[:auth_info]) if session[:auth_info] && RSpotify::authenticate(ENV["spotify_api_key"], ENV["spotify_api_secret"])
+
   end
 
   def bandsintown_service

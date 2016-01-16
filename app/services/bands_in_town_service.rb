@@ -10,7 +10,6 @@ class BandsInTownService
     parse_json(connection.get("events/search.json?location=#{url_location}&app_id=KONCERT"))
   end
 
-
   private
 
   def parse_json(response)

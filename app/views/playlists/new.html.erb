@@ -1,6 +1,6 @@
 <h4>Enter your location to create a playlist</h4>
 
-<%= form_for @playlist, url: {action: "create"} do |f| %>
+<%= form_for Playlist.new, url: {action: "create"} do |f| %>
   <%= f.label :location %>
   <%= f.text_field :location %>
   <%= f.submit "Generate Playlist ", class: "btn" %>
