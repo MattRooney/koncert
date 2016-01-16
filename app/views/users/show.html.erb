@@ -1,7 +1,6 @@
 <div class="row">
   <div class="col s5">
     <div class="center card trans-card cyan-text text-accent-2">
-
       <%= image_tag spotify_service.profile_image, class: "circle profile_img" %>
       <h4 class="cyan-text text-accent-2"><%= current_user.name %></h4>
       <iframe src="https://embed.spotify.com/?uri=spotify:track:0F0MA0ns8oXwGw66B2BSXm" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
@@ -10,23 +9,27 @@
       <br>
       <%= link_to "Create a Playlist", new_playlist_path, class: "btn-large cyan accent-2 black-text" %>
       <br></br>
-
     </div>
   </div>
 
   <div class="col s7">
     <ul class="collection">
     <% @events.each do |event| %>
-      <li class="collection-item trans-card cyan-text text-accent-2">
-        <span class="title"><%= event[:artists].first[:name] %></span>
-        <p><%= event[:venue][:name] %><br>
-          <%= event[:venue][:city] %>, <%= event[:venue][:region] %>
-        </p>
-        <%= link_to "Tickets", event[:ticket_url], class: "secondary-content btn cyan accent-2 black-text" %>
+      <li class="collection-item avatar trans-card cyan-text text-accent-2">
+        <div class="row">
+          <div class="col s7  ">
+            <span class="title"><%= event[:artists].first[:name] %></span>
+            <p><%= event[:venue][:name] %><br>
+              <%= event[:venue][:city] %>, <%= event[:venue][:region] %><br>
+              <%= event[:datetime].to_time.strftime("%l:%M%P %A %b %d, %Y") %>
+            </p>
+          </div>
+          <div class="col s1">
+            <%= link_to "Tickets", event[:ticket_url], class: "btn cyan accent-2 black-text secondary-content" %>
+          </div>
+        </div>
       </li>
-      <br>
     <% end %>
-
   </ul>
 
   </div>
