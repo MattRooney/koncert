@@ -7,15 +7,16 @@ class PlaylistsController < ApplicationController
   end
 
   def create
-    playlist = Playlist.new
-    artists = playlist.artists(bandsintown_service.events(params[:playlist][:location]))
+    @playlist = Playlist.new
+    events = @playlist.events(params[:playlist][:location])
+    artists = @playlist.artists(events)
     spotify_artists = artists.delete_if { |artist| RSpotify::Artist.search(artist).empty? }
 
     top_tracks = spotify_artists.map do |artist|
         RSpotify::Artist.search(artist).first.top_tracks(:us).first
     end
 
-    spotify_tracks = playlist.clean_tracks(top_tracks)
+    spotify_tracks = @playlist.clean_tracks(top_tracks)
     spotify_playlist = spotify_service.create_playlist(params[:playlist][:location]+" #{Time.now.strftime("%m/%d/%Y")}")
     spotify_playlist.add_tracks!(spotify_tracks)
 
@@ -27,7 +28,6 @@ class PlaylistsController < ApplicationController
   end
 
   def destroy
-
   end
 
 end
