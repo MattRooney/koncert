@@ -1,30 +1,25 @@
 class PlaylistsController < ApplicationController
 
   def index
+    @playlists = spotify_service.playlists
   end
 
   def new
   end
 
   def create
-    @playlist = Playlist.new
-    events = @playlist.events(params[:playlist][:location])
-    artists = @playlist.artists(events)
-    spotify_artists = artists.delete_if { |artist| RSpotify::Artist.search(artist).empty? }
-
-    top_tracks = spotify_artists.map do |artist|
-        RSpotify::Artist.search(artist).first.top_tracks(:us).first
-    end
-
-    spotify_tracks = @playlist.clean_tracks(top_tracks)
+    events = bandsintown_service.events(params[:playlist][:location])
+    artists = bandsintown_service.artists(events)
+    spotify_artists = spotify_service.clean_artists(artists)
+    top_tracks = spotify_service.top_tracks(spotify_artists)
+    spotify_tracks = spotify_service.clean_tracks(top_tracks)
     spotify_playlist = spotify_service.create_playlist(params[:playlist][:location]+" #{Time.now.strftime("%m/%d/%Y")}")
-    spotify_playlist.add_tracks!(spotify_tracks)
-
+    spotify_service.add_tracks(spotify_playlist, spotify_tracks)
     redirect_to playlist_path(spotify_playlist.id)
   end
 
   def show
-    @playlist = spotify_service.playlists.first
+    @playlist = spotify_service.find_playlist(current_user.spotify_id, params[:id])
   end
 
   def destroy
