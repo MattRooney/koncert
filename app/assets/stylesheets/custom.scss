@@ -1,3 +1,22 @@
 body {
   background: image-url("background_one.jpeg")
 }
+
+.profile_img {
+  width: 80px;
+  height: 80px;
+  margin-top: 20px;
+}
+
+.profile_playlist {
+  margin-top: 30px;
+}
+
+.trans-card {
+  background: rgb(54, 25, 25); /* Fall-back for browsers that don't support rgba */
+  background: rgba(0, 0, 0, 0.5) !important;
+}
+
+.trans-card h3 {
+    color: #000000;
+  }

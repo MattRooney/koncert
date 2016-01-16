@@ -68,11 +68,10 @@ class SpotifyServiceTest < ActiveSupport::TestCase
   end
 
   test "#create_playlist" do
-    skip
     assert_equal 20, service.playlists.count
 
     service.create_playlist("Title")
-    assert_equal 21, service.playlists.count
+    assert_equal "Title", service.playlists.first.name
   end
 
   # test "#user posts tweet" do
