@@ -14,9 +14,9 @@ class BandsInTownService
     artists = events.map { |event| event[:artists].first[:name] }
     artists.uniq
   end
-  
+
   def on_sale_soon
-    events = parse_json(connection.get("events/search.json?location=use_geoip&app_id=KONCERT"))
+    events = parse_json(connection.get("events/search.json?location=Denver,CO&app_id=KONCERT"))
     events.first(5)
   end
 

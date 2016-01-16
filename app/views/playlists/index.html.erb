@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col s5 offset-s1">
+    <div class="center card trans-card white-text">
+      <%= image_tag spotify_service.profile_image, class: "circle profile_img" %>
+      <h4 class="white-text"><%= current_user.name %></h4>
+      <iframe src="https://embed.spotify.com/?uri=spotify:track:0F0MA0ns8oXwGw66B2BSXm" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+      <h5><%= spotify_service.total_followers %> Followers</h5>
+      <h5><%= spotify_service.total_artists_followed %> Artists Followed</h5>
+      <br>
+      <%= link_to "Generate a New Playlist", new_playlist_path, class: "btn-large cyan accent-2 black-text" %>
+      <br></br>
+      <%= link_to "View Your Profile", current_user, class: "btn-large cyan accent-2 black-text" %>
+    </div>
+  </div>
+
+  <div class="col s5">
+    <div class="center card trans-card white-text">
+      <h5>Your Playlists</h5>
+      <% @playlists.each do |playlist| %>
+        <%= link_to playlist.name, playlist_path(playlist.id) %>
+        <br>
+      <% end %>
+    </div>
+  </div>
+</div>
