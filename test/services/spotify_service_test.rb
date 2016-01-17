@@ -34,6 +34,7 @@ class SpotifyServiceTest < ActiveSupport::TestCase
 
   def setup
     create_user
+    RSpotify::authenticate(ENV["spotify_api_key"], ENV["spotify_api_secret"])
     @service = SpotifyService.new(test_user_hash)
   end
 
@@ -53,6 +54,31 @@ class SpotifyServiceTest < ActiveSupport::TestCase
 
     assert_equal ["Blackbird", "Hotline Bling", "What do you mean?","Hello"],
       cleaned_tracks
+  end
+
+  test "#total_artists_followed" do
+    # VCR.use_cassette("spotify_service#user") do
+
+      assert_equal 20, service.total_artists_followed
+  end
+
+  test "#following?" do
+    # VCR.use_cassette("spotify_service#user") do
+
+      assert_equal true, service.following?("Sean Rowe").first
+  end
+
+  test "#playlists" do
+    assert service.playlists
+    assert_kind_of Array, service.playlists
+    assert_equal 20, service.playlists.count
+  end
+
+  test "#create_playlist" do
+    assert_equal 20, service.playlists.count
+
+    service.create_playlist("Title")
+    assert_equal "Title", service.playlists.first.name
   end
 
 end
