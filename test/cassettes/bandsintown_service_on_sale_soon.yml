@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.bandsintown.com/events/on_sale_soon.json?app_id=KONCERT&location=Denver,CO
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Hurley v0.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private, max-age=0, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sun, 17 Jan 2016 20:16:57 GMT
+      Etag:
+      - '"648c3e0081d3ae7257295caf6c85a274"'
+      Server:
+      - nginx
+      X-Runtime:
+      - '29'
+      Content-Length:
+      - '4379'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |
+        [{"id":11200234,"url":"http://www.bandsintown.com/event/11200234?app_id=KONCERT","datetime":"2016-04-07T19:30:00","ticket_url":"http://www.bandsintown.com/event/11200234/buy_tickets?app_id=KONCERT\u0026came_from=233","artists":[{"name":"Country","url":"http://www.bandsintown.com/Country","mbid":null}],"venue":{"id":1047633,"url":"http://www.bandsintown.com/venue/1047633","name":"1stBank Center","city":"Broomfield","region":"CO","country":"United States","latitude":39.904547,"longitude":-105.086449},"ticket_status":"available","on_sale_datetime":"2016-01-22T10:00:00"},
+        {"id":11213420,"url":"http://www.bandsintown.com/event/11213420?app_id=KONCERT","datetime":"2016-03-09T19:00:00","ticket_url":"http://www.bandsintown.com/event/11213420/buy_tickets?app_id=KONCERT\u0026came_from=233","artists":[{"name":"Charlie Puth","url":"http://www.bandsintown.com/CharliePuth","mbid":null}],"venue":{"id":1160773,"url":"http://www.bandsintown.com/venue/1160773","name":"Bluebird Theatre","city":"Denver","region":"CO","country":"United States","latitude":39.740281,"longitude":-104.948382},"ticket_status":"available","on_sale_datetime":"2016-01-22T10:00:00"},
+        {"id":11230882,"url":"http://www.bandsintown.com/event/11230882?app_id=KONCERT","datetime":"2016-03-22T20:00:00","ticket_url":"http://www.bandsintown.com/event/11230882/buy_tickets?app_id=KONCERT\u0026came_from=233","artists":[{"name":"Magma","url":"http://www.bandsintown.com/Magma","mbid":"5a8b9a2a-0c62-4dc9-ac40-afdbe1ec3ae7"}],"venue":{"id":803,"url":"http://www.bandsintown.com/venue/803","name":"Gothic Theatre","city":"Denver","region":"CO","country":"United States","latitude":39.65771,"longitude":-104.987973},"ticket_status":"available","on_sale_datetime":"2016-01-22T10:00:00"},
+        {"id":11230910,"url":"http://www.bandsintown.com/event/11230910?app_id=KONCERT","datetime":"2016-05-12T20:00:00","ticket_url":"http://www.bandsintown.com/event/11230910/buy_tickets?app_id=KONCERT\u0026came_from=233","artists":[{"name":"Tortoise","url":"http://www.bandsintown.com/Tortoise","mbid":"e0953daa-860f-4dc8-9f1a-b12587cdaf17"}],"venue":{"id":3999,"url":"http://www.bandsintown.com/venue/3999","name":"Bluebird Theater","city":"Denver","region":"CO","country":"United States","latitude":39.74015,"longitude":-104.948372},"ticket_status":"available","on_sale_datetime":"2016-01-22T10:00:00"},
+        {"id":11230934,"url":"http://www.bandsintown.com/event/11230934?app_id=KONCERT","datetime":"2016-07-29T19:30:00","ticket_url":"http://www.bandsintown.com/event/11230934/buy_tickets?app_id=KONCERT\u0026came_from=233","artists":[{"name":"Gary Clark Jr.","url":"http://www.bandsintown.com/GaryClarkJr.","mbid":null}],"venue":{"id":1067817,"url":"http://www.bandsintown.com/venue/1067817","name":"Red Rocks Amphitheatre","city":"Morrison","region":"CO","country":"United States","latitude":39.665619,"longitude":-105.205165},"ticket_status":"available","on_sale_datetime":"2016-01-22T10:00:00"},
+        {"id":11219659,"url":"http://www.bandsintown.com/event/11219659?app_id=KONCERT","datetime":"2016-08-30T19:00:00","ticket_url":"http://www.bandsintown.com/event/11219659/buy_tickets?app_id=KONCERT\u0026came_from=233","artists":[{"name":"Cheap Trick","url":"http://www.bandsintown.com/CheapTrick","mbid":"9f870653-72b0-4c6d-8c59-439a95963e09"},{"name":"Joan Jett and the Blackhearts","url":"http://www.bandsintown.com/JoanJettAndTheBlackhearts","mbid":"46e63d3b-d91b-4791-bb73-e9f638a45ea0"},{"name":"Heart","url":"http://www.bandsintown.com/Heart","mbid":"bdbd48f5-abf3-4a4f-9a21-4551dbc3fde9"}],"venue":{"id":1067817,"url":"http://www.bandsintown.com/venue/1067817","name":"Red Rocks Amphitheatre","city":"Morrison","region":"CO","country":"United States","latitude":39.665619,"longitude":-105.205165},"ticket_status":"available","on_sale_datetime":"2016-01-23T10:00:00"},
+        {"id":11130961,"url":"http://www.bandsintown.com/event/11130961?app_id=KONCERT","datetime":"2016-01-24T18:00:00","ticket_url":"http://www.bandsintown.com/event/11130961/buy_tickets?app_id=KONCERT\u0026came_from=233","artists":[{"name":"Chad Neidt","url":"http://www.bandsintown.com/ChadNeidt","mbid":null}],"venue":{"id":534796,"url":"http://www.bandsintown.com/venue/534796","name":"Lannies","city":"Denver","region":"CO","country":"United States","latitude":39.748138,"longitude":-104.995666},"ticket_status":"available","on_sale_datetime":"2016-01-24T17:00:00"}]
+    http_version: 
+  recorded_at: Sun, 17 Jan 2016 20:16:57 GMT
+recorded_with: VCR 3.0.0

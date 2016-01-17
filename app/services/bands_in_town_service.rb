@@ -16,7 +16,7 @@ class BandsInTownService
   end
 
   def on_sale_soon
-    events = parse_json(connection.get("events/search.json?location=Denver,CO&app_id=KONCERT"))
+    events = parse_json(connection.get("events/on_sale_soon.json?location=Denver,CO&app_id=KONCERT"))
     events.first(5)
   end
 

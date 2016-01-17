@@ -1,4 +1,4 @@
-require 'test_helper'
+require './test/test_helper'
 
 class SpotifyServiceTest < ActiveSupport::TestCase
   attr_reader :service, :test_user_hash
@@ -34,60 +34,25 @@ class SpotifyServiceTest < ActiveSupport::TestCase
 
   def setup
     create_user
-    RSpotify::authenticate(ENV["spotify_api_key"], ENV["spotify_api_secret"])
     @service = SpotifyService.new(test_user_hash)
   end
 
   test "#profile_image" do
-    # VCR.use_cassette("spotify_service#user") do
-      assert service.profile_image
+
+    assert service.profile_image
   end
 
   test "#total_followers" do
-    # VCR.use_cassette("spotify_service#user") do
 
-      assert_equal 20, service.total_followers
+    assert_equal 20, service.total_followers
   end
 
-  test "#total_artists_followed" do
-    # VCR.use_cassette("spotify_service#user") do
+  test "#clean_tracks" do
+    tracks = ["Blackbird", "Hotline Bling", "What do you mean?", nil, "Hello"]
+    cleaned_tracks = service.clean_tracks(tracks)
 
-      assert_equal 20, service.total_artists_followed
+    assert_equal ["Blackbird", "Hotline Bling", "What do you mean?","Hello"],
+      cleaned_tracks
   end
-
-  test "#following?" do
-    # VCR.use_cassette("spotify_service#user") do
-
-      assert_equal true, service.following?("Sean Rowe").first
-  end
-
-  test "#playlists" do
-    assert service.playlists
-    assert_kind_of Array, service.playlists
-    assert_equal 20, service.playlists.count
-  end
-
-  test "#create_playlist" do
-    assert_equal 20, service.playlists.count
-
-    service.create_playlist("Title")
-    assert_equal "Title", service.playlists.first.name
-  end
-
-  # test "#user posts tweet" do
-  #   service.stubs(:update).returns(Twitter::Tweet.new(id: 123))
-  #   VCR.use_cassette("spotify_service#update") do
-  #
-  #     assert_equal Twitter::Tweet, service.update("Tweet Test").class
-  #   end
-  # end
-  #
-  # test "#user adds favorite" do
-  #   service.stubs(:favorite).returns(Twitter::Tweet.new(id: 123))
-  #   VCR.use_cassette("spotify_service#favorite") do
-  #
-  #     assert_equal Twitter::Tweet, service.favorite("Test Tweet").class
-  #   end
-  # end
 
 end
