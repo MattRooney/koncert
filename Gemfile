@@ -17,6 +17,8 @@ gem 'skylight'
 group :development, :test do
   gem 'byebug'
   gem 'pry'
+  gem 'capybara'
+  gem 'launchy'
 end
 
 group :test do
