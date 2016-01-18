@@ -23,13 +23,13 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Sun, 17 Jan 2016 20:16:57 GMT
+      - Mon, 18 Jan 2016 20:11:34 GMT
       Etag:
       - '"648c3e0081d3ae7257295caf6c85a274"'
       Server:
       - nginx
       X-Runtime:
-      - '29'
+      - '26'
       Content-Length:
       - '4379'
       Connection:
@@ -45,5 +45,5 @@ http_interactions:
         {"id":11219659,"url":"http://www.bandsintown.com/event/11219659?app_id=KONCERT","datetime":"2016-08-30T19:00:00","ticket_url":"http://www.bandsintown.com/event/11219659/buy_tickets?app_id=KONCERT\u0026came_from=233","artists":[{"name":"Cheap Trick","url":"http://www.bandsintown.com/CheapTrick","mbid":"9f870653-72b0-4c6d-8c59-439a95963e09"},{"name":"Joan Jett and the Blackhearts","url":"http://www.bandsintown.com/JoanJettAndTheBlackhearts","mbid":"46e63d3b-d91b-4791-bb73-e9f638a45ea0"},{"name":"Heart","url":"http://www.bandsintown.com/Heart","mbid":"bdbd48f5-abf3-4a4f-9a21-4551dbc3fde9"}],"venue":{"id":1067817,"url":"http://www.bandsintown.com/venue/1067817","name":"Red Rocks Amphitheatre","city":"Morrison","region":"CO","country":"United States","latitude":39.665619,"longitude":-105.205165},"ticket_status":"available","on_sale_datetime":"2016-01-23T10:00:00"},
         {"id":11130961,"url":"http://www.bandsintown.com/event/11130961?app_id=KONCERT","datetime":"2016-01-24T18:00:00","ticket_url":"http://www.bandsintown.com/event/11130961/buy_tickets?app_id=KONCERT\u0026came_from=233","artists":[{"name":"Chad Neidt","url":"http://www.bandsintown.com/ChadNeidt","mbid":null}],"venue":{"id":534796,"url":"http://www.bandsintown.com/venue/534796","name":"Lannies","city":"Denver","region":"CO","country":"United States","latitude":39.748138,"longitude":-104.995666},"ticket_status":"available","on_sale_datetime":"2016-01-24T17:00:00"}]
     http_version: 
-  recorded_at: Sun, 17 Jan 2016 20:16:57 GMT
+  recorded_at: Mon, 18 Jan 2016 20:11:34 GMT
 recorded_with: VCR 3.0.0
