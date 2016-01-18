@@ -21,5 +21,4 @@ class ApplicationController < ActionController::Base
     @bandsintown_service ||= BandsInTownService.new
   end
 
-
 end

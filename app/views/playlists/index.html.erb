@@ -13,11 +13,13 @@
     </div>
   </div>
 
-  <div class="col s5">
+  <div id="playlists-card" class="col s5">
     <div class="center card trans-card white-text">
       <h5>Your Playlists</h5>
       <% @playlists.each do |playlist| %>
-        <%= link_to playlist.name, playlist_path(playlist.id) %>
+        <div id="playlist-link">
+          <%= link_to playlist.name, playlist_path(playlist.id) %>          
+        </div>
         <br>
       <% end %>
     </div>

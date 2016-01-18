@@ -17,9 +17,12 @@ gem 'skylight'
 group :development, :test do
   gem 'byebug'
   gem 'pry'
+  gem 'capybara'
+  gem 'launchy'
 end
 
 group :test do
+  gem 'webmock'
   gem 'vcr'
   gem 'simplecov', :require => false
 end

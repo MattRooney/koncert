@@ -1,4 +1,4 @@
-<div class="row">
+<div id="profile-card" class="row">
   <div class="col s5">
     <div class="center card trans-card white-text">
       <%= image_tag spotify_service.profile_image, class: "circle profile_img" %>
@@ -13,8 +13,15 @@
     </div>
   </div>
 
-  <div class="col s7">
+  <div id="on-sale-card" class="col s7">
     <ul class="collection">
+      <li class="collect ion-item trans-card white-text">
+        <div class="row">
+          <div class="center">
+            <h5>On Sale Soon In Your Hood</h5>
+          </div>
+        </div>
+      </li>
     <% @events.each do |event| %>
       <li class="collection-item avatar trans-card white-text">
         <div class="row">
