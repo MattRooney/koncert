@@ -11,7 +11,7 @@ class UserPlaylistsTest < ActionDispatch::IntegrationTest
   end
 
   test "user sees playlists" do
-    click_link "Your Playlists"
+    click_link "Your Koncert Playlists"
 
     assert_equal playlists_path, current_path
 

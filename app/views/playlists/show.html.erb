@@ -1,3 +1,17 @@
 
 <h3> <%= @playlist.name %></h3>
-<iframe src="https://embed.spotify.com/?uri=<%= @playlist.uri %>" width="500" height="500" frameborder="0" allowtransparency="true"></iframe>
+
+<div class="row">
+  <div class="col s4">
+    <div class="show-playlist">
+      <iframe src="https://embed.spotify.com/?uri=<%= @playlist.uri %>" width="350" height="600" frameborder="0" allowtransparency="true"></iframe>
+    </div>
+  </div>
+
+  <div class="col s7 offset-s1">
+      <ul class="collection">
+        <%= render partial: "partials/tickets" %>
+      </ul>
+    </div>
+  </div>
+</div>
