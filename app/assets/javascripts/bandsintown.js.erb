@@ -12,11 +12,18 @@ function fetchEvents() {
       $.each(events, function(index, event) {
         $('#latest-events').append(
           '<li class="collection-item avatar trans-card white-text"><div class="row"><div class="col s7">' +
-          'Venue: ' + event.venue.name + ' ' +
-          'Date: ' + event.datetime +
-          'City: ' + event.venue.city + ', ' +
-           event.venue.region + '</li>'
-        )
+          '<span class="title">Artist</span>' +
+          '<p>' +
+          event.venue.name + ' <br>' +
+          event.datetime + '<br>' +
+          event.venue.city + ', ' +
+          event.venue.region + '<p>' +
+           '</div>' +
+           '<div class="col s1">' +
+           '<%= escape_javascript link_to "Tickets", "/", remote: true %>' +
+           '</div>' +
+           '</div></li>'
+          )
       })
     },
     error:  function(xhr) {
