@@ -1,21 +1,18 @@
 <div class="row">
   <div class="col s12">
-  <div class="col s8 offset-s2">
-<div class="card trans-card white-text">
-<h1>Koncert</h1>
-<h5>Find concerts. Hear to who's playing.<br>Purchase tickets.</h5>
-<br>
-<% if current_user %>
-  <%= link_to "Generate a Playlist", new_playlist_path, class: "btn-large cyan accent-2 black-text" %>
-  <%= link_to "View your Profile", current_user, class: "btn-large cyan accent-2 black-text" %>
-<% else %>
-  <%= link_to 'Sign in with Spotify', login_path,  class: "btn-large cyan accent-2 black-text" %>
-<% end %>
-
-</div>
-
-</div>
-
-</div>
-
+    <div class="col s8 offset-s2">
+      <div class="card trans-card white-text">
+        <h1>Koncert</h1>
+        <h5>Find concerts. Hear to who's playing.<br>Purchase tickets.</h5>
+        <br>
+        <% if current_user %>
+          <%= link_to "Generate a Playlist", new_playlist_path, class: "btn-large cyan accent-2 black-text" %>
+          <%= link_to "View your Profile", current_user, class: "btn-large cyan accent-2 black-text" %>
+        <% else %>
+          <%= link_to 'Sign in with Spotify', login_path,  class: "btn-large cyan accent-2 black-text" %>
+        <% end %>
+        <br></br>
+      </div>
+    </div>
+  </div>
 </div>

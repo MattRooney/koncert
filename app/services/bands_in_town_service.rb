@@ -10,6 +10,12 @@ class BandsInTownService
     parse_json(connection.get("events/search.json?location=#{url_location}&app_id=KONCERT"))
   end
 
+  def playlist_events(location)
+    url_location = location.gsub(" ", "%20")
+    events = parse_json(connection.get("events/search.json?location=#{url_location}&app_id=KONCERT"))
+    events.first(5)
+  end
+
   def artists(events)
     artists = events.map { |event| event[:artists].first[:name] }
     artists.uniq

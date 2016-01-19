@@ -10,15 +10,17 @@
       <%= link_to "Generate a New Playlist", new_playlist_path, class: "btn-large cyan accent-2 black-text" %>
       <br></br>
       <%= link_to "View Your Profile", current_user, class: "btn-large cyan accent-2 black-text" %>
+      <br></br>
     </div>
   </div>
 
   <div id="playlists-card" class="col s5">
     <div class="center card trans-card white-text">
       <h5>Your Playlists</h5>
+      <br>
       <% @playlists.each do |playlist| %>
         <div id="playlist-link">
-          <%= link_to playlist.name, playlist_path(playlist.id) %>          
+          <%= link_to playlist.name, playlist_path(playlist.id), class: "cyan-text text-accent-2" %>
         </div>
         <br>
       <% end %>

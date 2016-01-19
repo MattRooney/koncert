@@ -1,0 +1,18 @@
+<% @events.each do |event| %>
+  <li class="collection-item avatar trans-card white-text">
+    <div class="row">
+      <div class="col s7">
+        <span class="title">
+          <%= event[:artists].first[:name] %>
+        </span>
+        <p><%= event[:venue][:name] %><br>
+          <%= event[:venue][:city] %>, <%= event[:venue][:region] %><br>
+          <%= event[:datetime].to_time.strftime("%l:%M%P %A %b %d, %Y") %>
+        </p>
+      </div>
+      <div class="col s1">
+        <%= link_to "Tickets", event[:ticket_url], class: "btn cyan accent-2 black-text secondary-content" %>
+      </div>
+    </div>
+  </li>
+<% end %>

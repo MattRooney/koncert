@@ -17,9 +17,17 @@ body {
 .trans-card {
   background: rgb(54, 25, 25); /* Fall-back for browsers that don't support rgba */
   background: rgba(black, 0.8) !important;
-  padding-bottom: 20px;
   padding-top: 1px;
+  line-height: 1.25rem;
+
 }
 .trans-card h3 {
   color: #000000;
   }
+.show-playlist {
+  margin-top: 9px;
+}
+.border {
+  border-radius: 2px;
+  border-color: #000
+}

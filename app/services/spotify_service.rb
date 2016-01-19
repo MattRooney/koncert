@@ -26,7 +26,7 @@ class SpotifyService
   end
 
   def playlists
-    client.playlists
+    client.playlists.delete_if { |playlist| !playlist.name.include?("Koncert")}
   end
 
   def find_playlist(spotify_id, playlist_id)
