@@ -1,7 +1,7 @@
 class PlaylistsController < ApplicationController
 
   def index
-    @playlists = spotify_service.playlists
+    # @playlists = spotify_service.playlists
   end
 
   def new
