@@ -8,7 +8,7 @@ function fetchOnSaleEvents() {
     type: 'GET',
     crossDomain: true,
     dataType: "jsonp",
-    url: 'http://api.bandsintown.com/events/on_sale_soon.json?location=Denver,%20CO&app_id=KONCERT',
+    url: 'http://api.bandsintown.com/events/on_sale_soon.json?&app_id=KONCERT',
     success: function(events) {
       $.each(events, function(index, event) {
         $('#latest-events').append(
