@@ -17,7 +17,7 @@ function fetchOnSaleEvents(lat, lon) {
     type: 'GET',
     crossDomain: true,
     dataType: "jsonp",
-    url: 'http://api.bandsintown.com/events/on_sale_soon.json?location='+lat+',%20'+lon+'&app_id=KONCERT',
+    url: 'http://api.bandsintown.com/events/search.json?location='+lat+',%20'+lon+'&app_id=KONCERT',
     success: function(events) {
       $.each(events, function(index, event) {
         $('#latest-events').append(
