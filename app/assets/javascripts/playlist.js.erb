@@ -15,17 +15,20 @@ function fetchProfile() {
       url:"https://api.spotify.com/v1/me",
       headers: {'Authorization' : 'Bearer ' + currentUser.oauth_token },
       success: function(user) {
+        var profImage = user.images[0].url
         $('#ajax-profile').append(
           '<div class="row">'+
             '<div class="col s5">' +
-              '<img src="' + user.images[0].url + '" class="circle profile_img">' +
+              '<img src="' + profImage + '" class="circle profile_img">' +
             '</div>' +
             '<div class="col s2 profile-name">' +
               '<h4>' + user.id + '</h4>' +
             '</div>' +
           '</div>' +
-          '<h5>Followers: ' + user.followers.total + '</h5>' +
-          '<iframe src="https://embed.spotify.com/?uri=spotify:track:0F0MA0ns8oXwGw66B2BSXm" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>'
+          '<h5 class="neg-margin">Followers: ' + user.followers.total + '</h5>' +
+          '<br>' +
+          '<iframe src="https://embed.spotify.com/?uri=spotify:track:0F0MA0ns8oXwGw66B2BSXm" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>' +
+          '<br>'
         )
       },
       error: function(xhr) {
