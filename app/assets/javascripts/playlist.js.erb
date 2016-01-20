@@ -1,1 +1,63 @@
+$(document).ready(function() {
+})
 
+$('#create-playlist').click(function() {
+  fetchCreatePlaylist()
+})
+
+function fetchCreatePlaylist() {
+  var param = $('#playlist-location').val()
+  var city = param.replace(/ /g, "%20")
+  fetchArtists(city)
+  // var spotify_artists = fetchSpotifyArtists(artists)
+  // var top_tracks = fetchTopTracks(spotify_artists)
+  // var spotify_tracks = cleanTopTracks(top_tracks)
+  // var spotify_playlist = initializePlaylist(spotify_tracks)
+  // var playlist = addTracks(spotify_playlist, spotify_tracks)
+  // renderEvents(events)
+  // renderPlaylist(playlist)
+  }
+
+function fetchSpotifyArtists(artists) {
+  $.each(artists, function(index, artist) {
+    $.ajax({
+      type: "GET",
+      url: "https://api.spotify.com/v1/search?q="+ artist +"&type=artist",
+    })
+  })
+}
+
+function fetchArtists(city) {
+  $.ajax({
+    type: 'GET',
+    crossDomain: true,
+    dataType: "jsonp",
+    url: 'http://api.bandsintown.com/events/search.json?location='+city+'&app_id=KONCERT',
+    success: function(events) {
+      $.each(events, function(index, event) {
+        $('#local-events').append(
+          '<li class="collection-item avatar trans-card white-text">'+
+            '<div class="row">'+
+              '<div class="col s7">' +
+                '<span class="title">' +
+                event.artists.shift().name +
+                '</span>' +
+                '<p>' +
+                event.venue.name + '<br>' +
+                event.venue.city + ', ' + event.venue.region + '<br>' +
+                Date(parseInt(event.datetime)) +
+                '<p>' +
+              '</div>' +
+              '<div class="col s1">'+
+              '<a class="btn cyan accent-2 black-text" href="' + event.ticket_url + '">Tickets</a>'+
+              '</div>' +
+            '</div>' +
+          '</li>'
+        )
+      })
+    },
+    error: function(xhr) {
+      console.log(xhr.responseText)
+    }
+  })
+}
