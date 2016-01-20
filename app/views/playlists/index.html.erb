@@ -1,12 +1,9 @@
 <div class="row">
   <div class="col s5 offset-s1">
     <div class="center card trans-card white-text">
-      <%= image_tag spotify_service.profile_image, class: "circle profile_img" %>
-      <h4 class="white-text"><%= current_user.name %></h4>
-      <iframe src="https://embed.spotify.com/?uri=spotify:track:0F0MA0ns8oXwGw66B2BSXm" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
-      <h5><%= spotify_service.total_followers %> Followers</h5>
-      <h5><%= spotify_service.total_artists_followed %> Artists Followed</h5>
-      <br>
+      <div id="ajax-profile">
+
+      </div>
       <%= link_to "Generate a New Playlist", new_playlist_path, class: "btn-large cyan accent-2 black-text" %>
       <br></br>
       <%= link_to "View Your Profile", current_user, class: "btn-large cyan accent-2 black-text" %>
@@ -18,12 +15,9 @@
     <div class="center card trans-card white-text">
       <h5>Your Koncert Playlists</h5>
       <br>
-      <% @playlists.each do |playlist| %>
-        <div id="playlist-link">
-          <%= link_to playlist.name, playlist_path(playlist.id), class: "cyan-text text-accent-2" %>
-        </div>
-        <br>
-      <% end %>
+      <div id="ajax-playlists">
+
+      </div>
     </div>
   </div>
 </div>

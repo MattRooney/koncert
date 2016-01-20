@@ -1,15 +1,63 @@
 $(document).ready(function() {
+  fetchProfile()
   fetchSpotifyPlaylists()
-  fetchArtistArray()
+  // fetchArtistArray()
 })
 
 $('#create-playlist').click(function() {
   fetchPlaylistLocation()
 })
 
-fetchSpotifyPlaylists() {
-
+function fetchProfile() {
+  $.get("/current", function(currentUser) {
+    $.ajax({
+      type: "GET",
+      url:"https://api.spotify.com/v1/me",
+      headers: {'Authorization' : 'Bearer ' + currentUser.oauth_token },
+      success: function(user) {
+        $('#ajax-profile').append(
+          '<div class="row">'+
+            '<div class="col s5">' +
+              '<img src="' + user.images[0].url + '" class="circle profile_img">' +
+            '</div>' +
+            '<div class="col s2 profile-name">' +
+              '<h4>' + user.id + '</h4>' +
+            '</div>' +
+          '</div>' +
+          '<h5>Followers: ' + user.followers.total + '</h5>' +
+          '<iframe src="https://embed.spotify.com/?uri=spotify:track:0F0MA0ns8oXwGw66B2BSXm" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>'
+        )
+      },
+      error: function(xhr) {
+        console.log(xhr.responseText)
+      }
+    })
+  })
 }
+
+function fetchSpotifyPlaylists() {
+  $.get("/current", function(currentUser) {
+    $.ajax({
+      type: "GET",
+      url:"https://api.spotify.com/v1/me/playlists",
+      headers: {'Authorization' : 'Bearer ' + currentUser.oauth_token },
+      success: function(responseObject) {
+        var playlists = responseObject.items
+        $.each(playlists, function(index, playlist) {
+          $('#ajax-playlists').append(
+            '<div id="playlist-link">' +
+              '<a href="/playlists/' + playlist.id + '">'+ playlist.name +'</a>' +
+            '</div><br>'
+          )
+        })
+      },
+      error: function(xhr) {
+        console.log(xhr.responseText)
+      }
+    })
+  }
+)}
+
 
 
 function fetchPlaylistLocation() {
@@ -35,42 +83,48 @@ function fetchSpotifyArtists(artists) {
   })
 }
 
-function fetchArtistArray(city) {
-  var location = city
-  $.ajax({ //first create spotify playlist\\})
-    $.ajax({
-      type: 'GET',
-      crossDomain: true,
-      dataType: "jsonp",
-      url: 'http://api.bandsintown.com/events/search.json?location='+location+'&app_id=KONCERT',
-      success: function(events) {
-        $.each(events, function(index, event) {
-          var artist = event.artists.shift().name
-          $.ajax({
-            type: 'GET',
-            crossDomain: true,
-            url: "https://api.spotify.com/v1/search?q=" + artist + "&type=artist",
-            success: function(artist) {
-              var id = artist.id
-              $.ajax({
-                type: 'GET',
-                crossDomain: true,
-                url: "https://api.spotify.com/v1/artists/"+id+"/top-tracks?country=US",
-                success: function(tracks) {
-                  var track = tracks.shift()
-                  $.ajax({
-                    type: 'POST', // add track to playlist created at line 40
-
-                  })
-                }
-              })
-            }
-          })
-        }
-      )},
-      error: function(xhr) {
-        console.log(xhr.responseText)
-      }
-    })
-  })
-}
+// function fetchArtistArray(city) {
+//   var location = city
+//   $.ajax({
+//     type: 'POST', // add track to playlist created at line 40
+//     authorization: ,
+//     dataType: ,
+//     name: ,//first create spotify playlist\\})
+//     $.ajax({
+//       type: 'GET',
+//       crossDomain: true,
+//       dataType: "jsonp",
+//       url: 'http://api.bandsintown.com/events/search.json?location='+location+'&app_id=KONCERT',
+//       success: function(events) {
+//         $.each(events, function(index, event) {
+//           var artist = event.artists.shift().name
+//           $.ajax({
+//             type: 'GET',
+//             crossDomain: true,
+//             url: "https://api.spotify.com/v1/search?q=" + artist + "&type=artist",
+//             success: function(artist) {
+//               var id = artist.id
+//               $.ajax({
+//                 type: 'GET',
+//                 crossDomain: true,
+//                 url: "https://api.spotify.com/v1/artists/"+id+"/top-tracks?country=US",
+//                 success: function(tracks) {
+//                   var track = tracks.shift()
+//                   $.ajax({
+//                     type: 'POST', // add track to playlist created at line 40
+//                     authorization: ,
+//                     dataType: ,
+//                     name: ,
+//                   })
+//                 }
+//               })
+//             }
+//           })
+//         }
+//       )},
+//       error: function(xhr) {
+//         console.log(xhr.responseText)
+//       }
+//     })
+//   })
+// }
