@@ -1,17 +1,26 @@
 $(document).ready(function() {
-  fetchOnSaleEvents()
+  fetchLocation()
 })
 
-function fetchOnSaleEvents() {
+function fetchLocation() {
+  navigator.geolocation.getCurrentPosition(function(position){
 
+    var latitude = (position.coords.latitude).toFixed(2)
+    var longitude = (position.coords.longitude).toFixed(2)
+
+    fetchOnSaleEvents(latitude, longitude)
+  })
+}
+
+function fetchOnSaleEvents(lat, lon) {
   $.ajax({
     type: 'GET',
     crossDomain: true,
     dataType: "jsonp",
-    url: 'http://api.bandsintown.com/events/on_sale_soon.json?location=Denver,CO&app_id=KONCERT',
+    url: 'http://api.bandsintown.com/events/on_sale_soon.json?location='+lat+',%20'+lon+'&app_id=KONCERT',
     success: function(events) {
       $.each(events, function(index, event) {
-        $('.body').append(
+        $('#latest-events').append(
           '<li class="collection-item avatar trans-card white-text">'+
             '<div class="row">'+
               '<div class="col s7">' +

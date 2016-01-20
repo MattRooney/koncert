@@ -8,7 +8,8 @@ $('#create-playlist').click(function() {
 function fetchCreatePlaylist() {
   var param = $('#playlist-location').val()
   var city = param.replace(/ /g, "%20")
-  fetchArtists(city)
+
+  $.fetchArtistArray(city)
   // var spotify_artists = fetchSpotifyArtists(artists)
   // var top_tracks = fetchTopTracks(spotify_artists)
   // var spotify_tracks = cleanTopTracks(top_tracks)
@@ -27,35 +28,18 @@ function fetchSpotifyArtists(artists) {
   })
 }
 
-function fetchArtists(city) {
+function fetchArtistArray(city) {
+  var location = city
   $.ajax({
     type: 'GET',
     crossDomain: true,
     dataType: "jsonp",
-    url: 'http://api.bandsintown.com/events/search.json?location='+city+'&app_id=KONCERT',
+    url: 'http://api.bandsintown.com/events/search.json?location='+location+'&app_id=KONCERT',
     success: function(events) {
       $.each(events, function(index, event) {
-        $('#local-events').append(
-          '<li class="collection-item avatar trans-card white-text">'+
-            '<div class="row">'+
-              '<div class="col s7">' +
-                '<span class="title">' +
-                event.artists.shift().name +
-                '</span>' +
-                '<p>' +
-                event.venue.name + '<br>' +
-                event.venue.city + ', ' + event.venue.region + '<br>' +
-                Date(parseInt(event.datetime)) +
-                '<p>' +
-              '</div>' +
-              '<div class="col s1">'+
-              '<a class="btn cyan accent-2 black-text" href="' + event.ticket_url + '">Tickets</a>'+
-              '</div>' +
-            '</div>' +
-          '</li>'
-        )
-      })
-    },
+        console.log(event.artists.shift().name)
+      }
+    )},
     error: function(xhr) {
       console.log(xhr.responseText)
     }
