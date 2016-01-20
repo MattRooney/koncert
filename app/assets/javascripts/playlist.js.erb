@@ -1,15 +1,22 @@
 $(document).ready(function() {
+  fetchSpotifyPlaylists()
+  fetchArtistArray()
 })
 
 $('#create-playlist').click(function() {
-  fetchCreatePlaylist()
+  fetchPlaylistLocation()
 })
 
-function fetchCreatePlaylist() {
+fetchSpotifyPlaylists() {
+
+}
+
+
+function fetchPlaylistLocation() {
   var param = $('#playlist-location').val()
   var city = param.replace(/ /g, "%20")
 
-  $.fetchArtistArray(city)
+  fetchArtistArray(city)
   // var spotify_artists = fetchSpotifyArtists(artists)
   // var top_tracks = fetchTopTracks(spotify_artists)
   // var spotify_tracks = cleanTopTracks(top_tracks)
@@ -30,18 +37,40 @@ function fetchSpotifyArtists(artists) {
 
 function fetchArtistArray(city) {
   var location = city
-  $.ajax({
-    type: 'GET',
-    crossDomain: true,
-    dataType: "jsonp",
-    url: 'http://api.bandsintown.com/events/search.json?location='+location+'&app_id=KONCERT',
-    success: function(events) {
-      $.each(events, function(index, event) {
-        console.log(event.artists.shift().name)
+  $.ajax({ //first create spotify playlist\\})
+    $.ajax({
+      type: 'GET',
+      crossDomain: true,
+      dataType: "jsonp",
+      url: 'http://api.bandsintown.com/events/search.json?location='+location+'&app_id=KONCERT',
+      success: function(events) {
+        $.each(events, function(index, event) {
+          var artist = event.artists.shift().name
+          $.ajax({
+            type: 'GET',
+            crossDomain: true,
+            url: "https://api.spotify.com/v1/search?q=" + artist + "&type=artist",
+            success: function(artist) {
+              var id = artist.id
+              $.ajax({
+                type: 'GET',
+                crossDomain: true,
+                url: "https://api.spotify.com/v1/artists/"+id+"/top-tracks?country=US",
+                success: function(tracks) {
+                  var track = tracks.shift()
+                  $.ajax({
+                    type: 'POST', // add track to playlist created at line 40
+
+                  })
+                }
+              })
+            }
+          })
+        }
+      )},
+      error: function(xhr) {
+        console.log(xhr.responseText)
       }
-    )},
-    error: function(xhr) {
-      console.log(xhr.responseText)
-    }
+    })
   })
 }

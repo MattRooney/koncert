@@ -19,8 +19,8 @@ class PlaylistsController < ApplicationController
   end
 
   def show
-    # @playlist = spotify_service.find_playlist(current_user.spotify_id, params[:id])
-    # @events = bandsintown_service.playlist_events(@playlist.name.split[1, 2].join(" "))
+    @playlist = spotify_service.find_playlist(current_user.spotify_id, params[:id])
+    @events = bandsintown_service.playlist_events(@playlist.name.split[1, 2].join(" "))
   end
 
   def destroy
