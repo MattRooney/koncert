@@ -14,16 +14,18 @@ class BandsInTownServiceTest < ActiveSupport::TestCase
       assert_equal 50, events.count
       assert_equal Time.now.day, events.first[:datetime].to_time.day
       assert_equal "CO", events.first[:venue][:region]
+      assert_equal "CO", events.last[:venue][:region]
     end
   end
 
-  test "#artists returns an array of artists, one for each event" do
+  test "#artists returns an array of artists one for each event" do
     VCR.use_cassette("bandsintown_service#events") do
       events = service.events("Denver, CO")
       artists = service.artists(events)
 
       assert_equal Array, artists.class
-      assert_equal 50, artists.count
+      assert_equal 49, artists.count
+      # on Jan 20th there is one event labeled "/aritst is residence/"
     end
   end
 
@@ -34,6 +36,7 @@ class BandsInTownServiceTest < ActiveSupport::TestCase
       assert_equal Array, events.class
       assert_equal 5, events.count
       assert_equal "CO", events.first[:venue][:region]
+      assert_equal "CO", events.last[:venue][:region]
     end
   end
 end

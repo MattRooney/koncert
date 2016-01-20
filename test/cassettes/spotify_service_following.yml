@@ -1,0 +1,402 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.spotify.com/v1/search?limit=20&offset=0&q=Sean%20Rowe&type=artist
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer BQCXxlCXjGKlyctcljvduC1UW3SlT36ZUOVKvhQ5mghlWKiJyRNfsDInMGn6nR6U70ZlD30YmEZK1DhOUgpJFg
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 20 Jan 2016 22:27:22 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Cache-Control:
+      - public, max-age=7200
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type
+      Content-Encoding:
+      - gzip
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAJSUy27bMBRE9/kKQwtvakRXJEVRBoxugqJZdNOiBYqgKEjx
+        0iKgVyQ6rhH436uXFdt1mnjJEXXncMDh881s5sna2cY13mw5e27XrZLWaLql
+        lzpXNUvfl5W9barSWbO7Tcrcfwr8BmWdpB8fN1jvVt9QFh++llucl8Y06FYw
+        z2xu3YrA3O0qXA0e3mKYbx3mvd/D6Nhq+MdhXcjs96bOjlj6b6P1CVJZYXHC
+        NFj4kIrH8M5EX378/H63ZveJuP+8/eSNw/aLg58ps6wFrs+9DmcvNlm2eJFd
+        6WTW6TyMg3+GrbGocTzRr0l9T4xj+K9hT7Os7ie9uS2XazyLtiNBu05dJwch
+        hEfHasM+IWz5El20cH4/yeeojQopIyYiEhKjBFURYRxNLAlwDDXGgiP1jmZu
+        rXZp7wUAU1SXcWJOr6ARjBvUcQJSBUppybUWkGgEQVhENEk0U4iaXKTh7C0Y
+        CsEVMBQIDwITcxYpKmkYCMXAgBQgWiSMFKEYRjy+CEPekcwVLAkqpIJroJoz
+        FYIGEYOhPEy0jAMhVQzSRBF7JZgDytHdLWSOvWVX7VlX7ZdLVpXVJpO1dX0j
+        6XSfvK7q/U8nde/5ba+Pl385fF/+r6sTjNe/JENoo1K0j8VpR73h3enEw6aq
+        xidbbpqzjVORuxbvb/Z/AQAA//8DAJeYfioDBQAA
+    http_version: 
+  recorded_at: Wed, 20 Jan 2016 22:27:22 GMT
+- request:
+    method: get
+    uri: https://api.spotify.com/v1/me/following/contains?ids=0h8q5Df7MVYUDg4Ic8IHwF&type=artist
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer BQCdnOSGI47FV9Pu5AJmbq7o0w1C8Sop2lDSV5RpUYFtYaPCx0dIUlD702NOqvgmewML4kUq2h7NUhUX-YEgap_MSpl5-0hivO7ypwQ-hQvTV9An5vG5_XoMbm9pnsi1NraHzeQD0LuVaFLdnwWBi_DOl-zY6Sb14IPoq1DuJfP2iSqEEW2n6ffCK5v0TXFN1D1oiksfkgO7Z7-euN5tg7bRpERnJON_DieCiMDlfMqt3-vsAEpGPXPZsdWw2YIEo7FeewsOK98TjFhY_iofKfwMWllX9AATkZ0lEpHInvkjizv2x-HP
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 20 Jan 2016 22:27:22 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Www-Authenticate:
+      - Bearer realm="spotify", error="invalid_token", error_description="The access
+        token expired"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAKrmUlBQSi0qyi9SslKoBnKA3OKSxJLSYiDfxMBQByKUm1pc
+        nJieChRTCslIVUhMTgYKKJTkZ6fmKaRWFGQWpaYoAVXWctUCAAAA//8DAFAZ
+        BolRAAAA
+    http_version: 
+  recorded_at: Wed, 20 Jan 2016 22:27:23 GMT
+- request:
+    method: post
+    uri: https://c151de7587bd4bccbf695aadcdd52a97:0cc50c2e0022449faeb165f7c46b63f6@accounts.spotify.com/api/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=client_credentials
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 20 Jan 2016 22:27:23 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=10
+      Vary:
+      - Accept-Encoding
+      X-Ua-Compatible:
+      - IE=edge
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - 'default-src ''self''; script-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://www.google-analytics.com; img-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://i.imgur.com https://d2mv8tnci56s9d.cloudfront.net https://aci.scdn.co
+        https://graph.facebook.com https://fbcdn-profile-a.akamaihd.net https://www.google-analytics.com
+        https://stats.g.doubleclick.net data: d2d1dxiu3v1f2i.cloudfront.net; font-src
+        ''self'' https://d2d1dxiu3v1f2i.cloudfront.net https://sp-bootstrap.global.ssl.fastly.net;
+        style-src ''self'' ''unsafe-inline'' https://d2d1dxiu3v1f2i.cloudfront.net;
+        frame-src ''self'' https://www.spotify.com;'
+      X-Content-Security-Policy:
+      - 'default-src ''self''; script-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://www.google-analytics.com; img-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://i.imgur.com https://d2mv8tnci56s9d.cloudfront.net https://aci.scdn.co
+        https://graph.facebook.com https://fbcdn-profile-a.akamaihd.net https://www.google-analytics.com
+        https://stats.g.doubleclick.net data: d2d1dxiu3v1f2i.cloudfront.net; font-src
+        ''self'' https://d2d1dxiu3v1f2i.cloudfront.net https://sp-bootstrap.global.ssl.fastly.net;
+        style-src ''self'' ''unsafe-inline'' https://d2d1dxiu3v1f2i.cloudfront.net;
+        frame-src ''self'' https://www.spotify.com;'
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAx3NTQuCMBgA4P+yc4Fi37dER0TRDBU7jakvYzjX2Jzrg/57
+        1vW5PG/EmgaspcO9A4V2KM6SCynXTcBHkety6TIgRjEetQdc1zzdAj6lfX4+
+        bvKEdSEzfUFwKBdjWXktuReyHZTwFXHs5uYvWVzjGO/RDP0DOjw1/BZgBsyk
+        8NDCgKViuqNVEHy+pTIZsJEAAAA=
+    http_version: 
+  recorded_at: Wed, 20 Jan 2016 22:27:23 GMT
+- request:
+    method: get
+    uri: https://api.spotify.com/v1/me/following/contains?ids=0h8q5Df7MVYUDg4Ic8IHwF&type=artist
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer BQCdnOSGI47FV9Pu5AJmbq7o0w1C8Sop2lDSV5RpUYFtYaPCx0dIUlD702NOqvgmewML4kUq2h7NUhUX-YEgap_MSpl5-0hivO7ypwQ-hQvTV9An5vG5_XoMbm9pnsi1NraHzeQD0LuVaFLdnwWBi_DOl-zY6Sb14IPoq1DuJfP2iSqEEW2n6ffCK5v0TXFN1D1oiksfkgO7Z7-euN5tg7bRpERnJON_DieCiMDlfMqt3-vsAEpGPXPZsdWw2YIEo7FeewsOK98TjFhY_iofKfwMWllX9AATkZ0lEpHInvkjizv2x-HP
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 20 Jan 2016 22:27:23 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Www-Authenticate:
+      - Bearer realm="spotify", error="invalid_token", error_description="The access
+        token expired"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAKrmUlBQSi0qyi9SslKoBnKA3OKSxJLSYiDfxMBQByKUm1pc
+        nJieChRTCslIVUhMTgYKKJTkZ6fmKaRWFGQWpaYoAVXWctUCAAAA//8DAFAZ
+        BolRAAAA
+    http_version: 
+  recorded_at: Wed, 20 Jan 2016 22:27:23 GMT
+- request:
+    method: post
+    uri: https://c151de7587bd4bccbf695aadcdd52a97:0cc50c2e0022449faeb165f7c46b63f6@accounts.spotify.com/api/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=refresh_token&refresh_token=AQA88LaUbIGXFaBPVeAOzIoMN4Ow7uR_sZaVCou0yOhY0hlc7x4ewr4vOHI9FDTTvAJN4rDfcjNM2O6ESzZgDqpZWGBUN1KwxwRksRd-_ropxvSYnaQCF14OzyH4j4avUGY
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '170'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 20 Jan 2016 22:27:23 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=10
+      Vary:
+      - Accept-Encoding
+      X-Ua-Compatible:
+      - IE=edge
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - 'default-src ''self''; script-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://www.google-analytics.com; img-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://i.imgur.com https://d2mv8tnci56s9d.cloudfront.net https://aci.scdn.co
+        https://graph.facebook.com https://fbcdn-profile-a.akamaihd.net https://www.google-analytics.com
+        https://stats.g.doubleclick.net data: d2d1dxiu3v1f2i.cloudfront.net; font-src
+        ''self'' https://d2d1dxiu3v1f2i.cloudfront.net https://sp-bootstrap.global.ssl.fastly.net;
+        style-src ''self'' ''unsafe-inline'' https://d2d1dxiu3v1f2i.cloudfront.net;
+        frame-src ''self'' https://www.spotify.com;'
+      X-Content-Security-Policy:
+      - 'default-src ''self''; script-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://www.google-analytics.com; img-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://i.imgur.com https://d2mv8tnci56s9d.cloudfront.net https://aci.scdn.co
+        https://graph.facebook.com https://fbcdn-profile-a.akamaihd.net https://www.google-analytics.com
+        https://stats.g.doubleclick.net data: d2d1dxiu3v1f2i.cloudfront.net; font-src
+        ''self'' https://d2d1dxiu3v1f2i.cloudfront.net https://sp-bootstrap.global.ssl.fastly.net;
+        style-src ''self'' ''unsafe-inline'' https://d2d1dxiu3v1f2i.cloudfront.net;
+        frame-src ''self'' https://www.spotify.com;'
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAx3QS3KCMAAA0LuwrjMIAqU7pOEjSqz4g00GIWBUJAQNJJ3e
+        vbbbt3zfSl4UuO/Ro73iu/KhzL8cvr6o/uJAiNWVjg0RqsNSXCVcGo0GnqKw
+        PY5VZvRQG2bv89F8fg7F2nfz48Pbg9qJNn1Zw02n+hHSs0vONwOWztzb0fA0
+        uCQS8YVzRKH3tOyhxkDc3Cjq5co0BmZrWkqaVrYpuKHbWqazjKTsIFJXFsm2
+        060+EcvytDhV/nhf1w9Oo3xP+QjD9sJOBDjTgJo2wI0BdRdNF1kmwnZXeVcf
+        BHWXz5oiEdcsdCrG1Sz26FcJjLGa6Z2smvNqD5IJkQlgMD4cIphvdM3r4JnC
+        +H4PJjULzTjI5LF3bxOuzYGF5dGR7VZT3pT/PvQQFP8d4pxh9lI8UsJwj8hr
+        VjdV9ecXbC2GA28BAAA=
+    http_version: 
+  recorded_at: Wed, 20 Jan 2016 22:27:23 GMT
+- request:
+    method: get
+    uri: https://api.spotify.com/v1/me/following/contains?ids=0h8q5Df7MVYUDg4Ic8IHwF&type=artist
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer BQAvPj0GJWii7qdA9O__gIdykzOL5m2Euyc9Fve0r5sO2w48Bx6uDwcPGCaXtFVEgAKRsdgORq0GK_3ZjavRwezABFUpIbwCiKyNjvv_pOFu79wgeEylCKKszM65wr922YimozoYEl_lPzY4ZiYrWyYCzcSTq37sSyLdbJbfGxnPgtvpKaVpvxOIojrbiEA1Hp69Eem5O3C_1JZZyIoUfFkGEHgqa4mcSykZIAfrv0ZNFpQdE5xf43qzfmhMVES-izSErONWWKOaR32FqOhpONnnH-grI6NHZzXsCl-v2BE7ezXAzoT2
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 20 Jan 2016 22:27:23 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Cache-Control:
+      - private, max-age=0
+      Vary:
+      - Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type
+      Content-Encoding:
+      - gzip
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAIpWKCkqTVWIBQAAAP//AwCTpdEjCAAAAA==
+    http_version: 
+  recorded_at: Wed, 20 Jan 2016 22:27:23 GMT
+recorded_with: VCR 3.0.0

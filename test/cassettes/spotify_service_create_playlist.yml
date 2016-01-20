@@ -1,0 +1,490 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.spotify.com/v1/users/heyitsroon/playlists
+    body:
+      encoding: UTF-8
+      string: '{"name":"Koncert Test Title","public":true}'
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer BQCdnOSGI47FV9Pu5AJmbq7o0w1C8Sop2lDSV5RpUYFtYaPCx0dIUlD702NOqvgmewML4kUq2h7NUhUX-YEgap_MSpl5-0hivO7ypwQ-hQvTV9An5vG5_XoMbm9pnsi1NraHzeQD0LuVaFLdnwWBi_DOl-zY6Sb14IPoq1DuJfP2iSqEEW2n6ffCK5v0TXFN1D1oiksfkgO7Z7-euN5tg7bRpERnJON_DieCiMDlfMqt3-vsAEpGPXPZsdWw2YIEo7FeewsOK98TjFhY_iofKfwMWllX9AATkZ0lEpHInvkjizv2x-HP
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '43'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 20 Jan 2016 22:39:58 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Www-Authenticate:
+      - Bearer realm="spotify", error="invalid_token", error_description="The access
+        token expired"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAKrmUlBQSi0qyi9SslKoBnKA3OKSxJLSYiDfxMBQByKUm1pc
+        nJieChRTCslIVUhMTgYKKJTkZ6fmKaRWFGQWpaYoAVXWctUCAAAA//8DAFAZ
+        BolRAAAA
+    http_version: 
+  recorded_at: Wed, 20 Jan 2016 22:39:58 GMT
+- request:
+    method: post
+    uri: https://c151de7587bd4bccbf695aadcdd52a97:0cc50c2e0022449faeb165f7c46b63f6@accounts.spotify.com/api/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=client_credentials
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 20 Jan 2016 22:39:58 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=10
+      Vary:
+      - Accept-Encoding
+      X-Ua-Compatible:
+      - IE=edge
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - 'default-src ''self''; script-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://www.google-analytics.com; img-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://i.imgur.com https://d2mv8tnci56s9d.cloudfront.net https://aci.scdn.co
+        https://graph.facebook.com https://fbcdn-profile-a.akamaihd.net https://www.google-analytics.com
+        https://stats.g.doubleclick.net data: d2d1dxiu3v1f2i.cloudfront.net; font-src
+        ''self'' https://d2d1dxiu3v1f2i.cloudfront.net https://sp-bootstrap.global.ssl.fastly.net;
+        style-src ''self'' ''unsafe-inline'' https://d2d1dxiu3v1f2i.cloudfront.net;
+        frame-src ''self'' https://www.spotify.com;'
+      X-Content-Security-Policy:
+      - 'default-src ''self''; script-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://www.google-analytics.com; img-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://i.imgur.com https://d2mv8tnci56s9d.cloudfront.net https://aci.scdn.co
+        https://graph.facebook.com https://fbcdn-profile-a.akamaihd.net https://www.google-analytics.com
+        https://stats.g.doubleclick.net data: d2d1dxiu3v1f2i.cloudfront.net; font-src
+        ''self'' https://d2d1dxiu3v1f2i.cloudfront.net https://sp-bootstrap.global.ssl.fastly.net;
+        style-src ''self'' ''unsafe-inline'' https://d2d1dxiu3v1f2i.cloudfront.net;
+        frame-src ''self'' https://www.spotify.com;'
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAx3Nuw6CMBQA0H/prAkKaHSjhEFQ4yMa6NK0zVUJSdu0V3kY
+        /110Pct5E6EUeM/RNKDJmtBjUqkwTBmax4C0uDTdMu5PrZYai2cpVlXcZTXy
+        yLbivp1v9FnbgSXZYTqTPYgrk7sXzWXOKoGpzfeluRmZkAn5Bxx7C78FhAM3
+        KnS2duB5Pd7hIgg+X+68VeaRAAAA
+    http_version: 
+  recorded_at: Wed, 20 Jan 2016 22:39:58 GMT
+- request:
+    method: post
+    uri: https://api.spotify.com/v1/users/heyitsroon/playlists
+    body:
+      encoding: UTF-8
+      string: '{"name":"Koncert Test Title","public":true}'
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer BQCdnOSGI47FV9Pu5AJmbq7o0w1C8Sop2lDSV5RpUYFtYaPCx0dIUlD702NOqvgmewML4kUq2h7NUhUX-YEgap_MSpl5-0hivO7ypwQ-hQvTV9An5vG5_XoMbm9pnsi1NraHzeQD0LuVaFLdnwWBi_DOl-zY6Sb14IPoq1DuJfP2iSqEEW2n6ffCK5v0TXFN1D1oiksfkgO7Z7-euN5tg7bRpERnJON_DieCiMDlfMqt3-vsAEpGPXPZsdWw2YIEo7FeewsOK98TjFhY_iofKfwMWllX9AATkZ0lEpHInvkjizv2x-HP
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '43'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 20 Jan 2016 22:39:58 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Www-Authenticate:
+      - Bearer realm="spotify", error="invalid_token", error_description="The access
+        token expired"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAKrmUlBQSi0qyi9SslKoBnKA3OKSxJLSYiDfxMBQByKUm1pc
+        nJieChRTCslIVUhMTgYKKJTkZ6fmKaRWFGQWpaYoAVXWctUCAAAA//8DAFAZ
+        BolRAAAA
+    http_version: 
+  recorded_at: Wed, 20 Jan 2016 22:39:58 GMT
+- request:
+    method: post
+    uri: https://c151de7587bd4bccbf695aadcdd52a97:0cc50c2e0022449faeb165f7c46b63f6@accounts.spotify.com/api/token
+    body:
+      encoding: US-ASCII
+      string: grant_type=refresh_token&refresh_token=AQA88LaUbIGXFaBPVeAOzIoMN4Ow7uR_sZaVCou0yOhY0hlc7x4ewr4vOHI9FDTTvAJN4rDfcjNM2O6ESzZgDqpZWGBUN1KwxwRksRd-_ropxvSYnaQCF14OzyH4j4avUGY
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '170'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 20 Jan 2016 22:39:58 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=10
+      Vary:
+      - Accept-Encoding
+      X-Ua-Compatible:
+      - IE=edge
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - 'default-src ''self''; script-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://www.google-analytics.com; img-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://i.imgur.com https://d2mv8tnci56s9d.cloudfront.net https://aci.scdn.co
+        https://graph.facebook.com https://fbcdn-profile-a.akamaihd.net https://www.google-analytics.com
+        https://stats.g.doubleclick.net data: d2d1dxiu3v1f2i.cloudfront.net; font-src
+        ''self'' https://d2d1dxiu3v1f2i.cloudfront.net https://sp-bootstrap.global.ssl.fastly.net;
+        style-src ''self'' ''unsafe-inline'' https://d2d1dxiu3v1f2i.cloudfront.net;
+        frame-src ''self'' https://www.spotify.com;'
+      X-Content-Security-Policy:
+      - 'default-src ''self''; script-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://www.google-analytics.com; img-src ''self'' https://d2d1dxiu3v1f2i.cloudfront.net
+        https://i.imgur.com https://d2mv8tnci56s9d.cloudfront.net https://aci.scdn.co
+        https://graph.facebook.com https://fbcdn-profile-a.akamaihd.net https://www.google-analytics.com
+        https://stats.g.doubleclick.net data: d2d1dxiu3v1f2i.cloudfront.net; font-src
+        ''self'' https://d2d1dxiu3v1f2i.cloudfront.net https://sp-bootstrap.global.ssl.fastly.net;
+        style-src ''self'' ''unsafe-inline'' https://d2d1dxiu3v1f2i.cloudfront.net;
+        frame-src ''self'' https://www.spotify.com;'
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      Content-Encoding:
+      - gzip
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAx3QW5dCQAAA4P/ieZ0zQti3TJElySWXF4dpSGRolMue/e/b
+        7uv3+H0zGUKY0nQgNW6ZT0Y9wbEOt6BIQlDdwMPnzvzS+t6gT6NtQdfMdWF7
+        KGOy4W/5avNKDLWAlCtYwgeG0mfevW8WSzXFfp+zJ/Hi3KWNzC+abTuo6M9e
+        qenAzFG0Gqp+WacTdNgs6jJpbIKlk6iouC20XTgDKlzK+eKbK31XhVSVhoTt
+        2PRLD2VHPhJ89A8G4cungmoSfB1tY/Iotx/tmHNfnHq3qHU9QisF/TYesdyd
+        kPEEUbtXNWGdvPKSelB6BupWDHdeIYQxviJYXhogNPXi7wiYi/PTV2IUDa5/
+        O5S+yCKuNuSKJASfDwNUtHKtRK3u6NagMR/Mf186zB3+O8TZAz/eiqeuemCa
+        Vu9Zfg3Azy+FEOL6bwEAAA==
+    http_version: 
+  recorded_at: Wed, 20 Jan 2016 22:39:58 GMT
+- request:
+    method: post
+    uri: https://api.spotify.com/v1/users/heyitsroon/playlists
+    body:
+      encoding: UTF-8
+      string: '{"name":"Koncert Test Title","public":true}'
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer BQCwkWD0fZW0ij0rT1V3znTStGxwNLCRKbG4DMgYoA3jb2AvZIBfCs1f-o3UI9qaSmqlzLBK5qHb-Q5dPm7A83zFNNPcfqVSgFG0KbcX2tiqz6_xCP-aXpa7wlUzp7s59RnCNRCy0s4dgydTK2GEiWsB7tZ-p-_JGW8P8OoeOTMIo3gu9ckoUJONIxSs1HwNY1Rv1BmLsLhOCL_0qDYwe8pQcIu0XnHBF46ZvbgsSC7uUBD5WESf4WYehcCgdl04lkzTEo0yfVuT9YcXtRTjMgT5-c1kI8ioZoeVMtC9Fg69XnGPGLtF
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '43'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 20 Jan 2016 22:39:59 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Cache-Control:
+      - private, max-age=0
+      Location:
+      - https://api.spotify.com/v1/users/heyitsroon/playlists/5QSDEP5cf3YEtGkJWjrJtQ
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type
+      Content-Encoding:
+      - gzip
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAKyTTU/jMBCG7/srolxBpN0lLORWCUSXCgFqFwQIIZNOqKlj
+        W55JQhb1v2M7CWqBgkB7yeGZr9fvTJ5+BEGYKiHYnTKMeAlhkAQZEwibLjQF
+        TA3XxJV0AVkI4Tk8EhjJxG1hBLrIk6WWo1bEs9qRcEakkyhSGuRWy7dSlUcF
+        golmUHNCo5SMtGC14EhRfDbePziN0+zX5QEdzo8uHswRnYW288IPzaxOVYFZ
+        HjgzkC0rs4gUMeFY76Wyy/Ka0Ipimq9oKvteFr6nC9cJ86351Df+MCVn9+BF
+        Xwc3nkiWe6PDkZIpGAomgPbDSUBToioJZumZa/z+nuOhr11srjr4FW/CtrZ9
+        /NsA1bp5oKvsYGG4Z23zxMWSVVnNunRxJ3jqcskUzSGiZBpnim7bkcPBiEb3
+        u/vz43J7+HOSQfy7t1dM+4/DaiP+azcwGA/K439/dtXpCcwfrrZrnJxDFe+c
+        jys8vMobm8mwdP7eOf3XQ4naMZ1pBPnyNVgkeM7JoX6v1yJpV/7qsFWWIXjY
+        JWkDJVcFfv4HvCykE9sY8MlKki47WfdvLp4BAAD//wMADOl92EIEAAA=
+    http_version: 
+  recorded_at: Wed, 20 Jan 2016 22:39:59 GMT
+- request:
+    method: get
+    uri: https://api.spotify.com/v1/users/heyitsroon/playlists?limit=20&offset=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer BQCwkWD0fZW0ij0rT1V3znTStGxwNLCRKbG4DMgYoA3jb2AvZIBfCs1f-o3UI9qaSmqlzLBK5qHb-Q5dPm7A83zFNNPcfqVSgFG0KbcX2tiqz6_xCP-aXpa7wlUzp7s59RnCNRCy0s4dgydTK2GEiWsB7tZ-p-_JGW8P8OoeOTMIo3gu9ckoUJONIxSs1HwNY1Rv1BmLsLhOCL_0qDYwe8pQcIu0XnHBF46ZvbgsSC7uUBD5WESf4WYehcCgdl04lkzTEo0yfVuT9YcXtRTjMgT5-c1kI8ioZoeVMtC9Fg69XnGPGLtF
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 20 Jan 2016 22:39:59 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Cache-Control:
+      - public, max-age=0
+      Etag:
+      - '"ca9a2f0cf39860ced52857ffc56bab95"'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type
+      Content-Encoding:
+      - gzip
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAOydWW/jOBLH3/dTBP2wL2mMxUMk1cBg4duO7/tYLBY8fcuH
+        5HMx333pTHpmEtjJzLScIICARpKWSiwWTf5/VRJt/+8fd3dfxhttvtx9s3+E
+        4Sr4lkjw1eSnYLUMJ+b4k1wuEjuQ2AZ6EyTG+jgJg81y6SdWc36cT4Iw+NfS
+        mECHPzv/nE8Wk/Bn6Hz5em51EupFcG7233f/s/+3R+RyPudiueHhZKfPZwyf
+        B/rrryf1IdQbn8//u93MHy/79SJ75qknv/XQdnC50v6zHp67d6l3CbfRymTr
+        rjRokA3zs4fedPMQNr48tv3Lk+sfi/+ai6fGJ+qx6TeMFnyknwbrP0/HfL54
+        HKQvpaUv9Sa8a+vA/piEc/39suXe15tnY3V1FP/eOH55uvpppP7mWH357eqn
+        wbh0Kjyufg33fPXvh7ebyePRJxffzme/vezg9xdytRXziTzbh5vt94kV+HwV
+        jJfhf5+cF5KlsDRimVllhwuwbbRLHW+rwKGwv3c79rVJtpK7yqnIlvWank2H
+        +Bi0u3rvkm5rH+SHi++DH264nD2fqTeZSIknR7+P1DLk87Mb51nwvw3g9wa/
+        d/SNIfz23f7b9bXyy9ePXMNkWEOFTXMtO3OxPYy389wgbO0jXcNXXDxfw28Y
+        xWv43dZwPVws1tlmGvR2UrernZpM8s4xeQyHhVatml9lGli4xVm62QvnzBxD
+        WthliplZyQi4DGZkebs1fHmOvN8avr5WPnYN013JpHbl2R71B0kXHIpoUcuM
+        I13DV1w8X8NvGP1hDf8+I/RkNA7PBwl2/jCp58/6ulgGfCJ/CqTybV8T1jSh
+        XA2wp6ERRFCoOMBaOZQiAQR2qEESQWKgclwNAVUGGkaJhA5RnhSYYI2BY6RR
+        DlfIc6nhHFGgbKNKAA9h7BnuAC7sKQ9QajQAHGvBXCoZcz3OsYcNt5dTzzEe
+        IIwTbZArEZJEQ+J4zu/TcT9R4fgpwqeX5FL8yPnT8VvTzxi/7fYr8ZM///J/
+        yujJU/DX+ZXR/k5vvt6la3cOSEDH/gMkRtkPoCyJB+V9o3XIeoWs6D+kMw/b
+        sM1ax17T3/mZfO44apdgozcjVIF6Y+qS3sDfzhLJbjU7Y/Xp6nYouyyV11EG
+        UcQsu86Mj2WZMxet7gM3h7KTEQW1zY9bW1dHyrIrLp6z7A2jmGUxy2KWxSx7
+        P5YlOn5u0Dzlumyx9x8SCQX2+XrP4Th/SAbLFAN0Vx1MTpSoQkmQUWINVunq
+        bDtsr7oVT03827HsslS+I8uuM+ODWXZMakI6pfFmLqdkvO/NTznSj5Zll128
+        YNnrRpGyDDJFoAsp5NQoz/Ewx8jqGxRcSGzsIdfhzFPCKBcIK1RMEw8pYX9b
+        MePcxYR5EinvLESIIgyNVSvtYimI9BwCoOdgpg0hRALiGaw4ZdBBQAGpoKdc
+        hoXClGpXOgALaFzjsbOkOlgTjZW+Ncs+YfwRsuwTRv82y1LLIFz6X+8qyZhl
+        0bBs2Ejm+DZ5wKNs1+wPXdYltSqf+adZEcFNspjtNBpmOhWqLdYPYkcn2suS
+        3qottgjx3pbekGUXpfIVlpGoWXaVGR98jzFbBMvVrk2mTOBVxj25h+X0EO09
+        xssuXtxjfN3otecEVb2/q794XeLle235/nFOvVy/bpE04XayMpNWAnWoV3FR
+        JlPNjRLjdqezyKzhKvTTBUgr0J235Vqh6WBER7pSocdFVdSSN7yvcnF6vN8j
+        guvL5GOXL+ZMp6TO+P7sMMpsSo3G8jiuRLp8r7h4vnzfMIo0FQVCuhIgQ5F0
+        bcnMsCMo0woTT2rX1dSBRElOpU1DXIG0y21qIRHwMBPceBDbiplzIBg3DrKp
+        hL3eJcbYNiCxVbN2IOUGI0KpK7VjtGSKCSgg8oxNcBAyNlUBtn1b1TMmhAut
+        tf3FqesYAG25f+tU9BPGH2Eq+gmjfzsVTc4F949f76qDcyoKvDgV/dFU1NuU
+        s7VCEbRb5USqPknm9mmn6t4n50vEVbIfHh/GC5w/6k6u11sfbIZaKBZ00wlm
+        YLjCARS3Q9llqXwlFYURs+w6Mz44FXXYw0EfVv3ZQzeVn2cK61m7Ook2Fb3s
+        4kUq+rpRpCwjRjIEsKeostohNJVcYAdiI4GnHAcYIYHBnhSACA5dJh0rpcR1
+        JEeQGQ9gl7hUYum4CDmeZxWJ2GZsIxBwIIXjeK5xCdZAGIkVg66RVjm5Y2wT
+        AtmKmmFsBLFi50GBMDPSKpq2faHnu8WI3ZplnzD+CFn2CaP/q48IYpb9OMt2
+        4wMIk1OSqA0z3VE/Pe84rTCTSqwWVZabGlqdZBvjnUjOa/fTfjBIj+r9Spm7
+        Wz3jk/KucLxhWXZRKt+RZdeZ8cF1WTFJ6/n8w7Gem/krrWqHZhnhaOuyyy5e
+        1GWvG0XKMqas6jAiECEASfp4pxZ7zIoc11gS7VCErAK5GBjuSocCCIwriJRU
+        OZpLhD2Ezo9IIbRHJLBpPmG2Ia4Ass0qaOVMQYEhgAwaZRXKQ1JwVztEU89Q
+        7gCHSgdwajN5hT3IKVJWNrnWgmjm8luz7BPGHyHLPmH0b7NstdyEc+6rr3e1
+        TUyzaGgGDpmSTLv5/uKeZtFhtVWFDkhv72Em1YIP49qgXBiN5uKEZ4dhrlUI
+        vbpe+qeBAulpNoc21RtWZhfF8jrNUNR3Ga9T42NpBkdVf3oAuWR6vcW8nOn2
+        h+32IFKaXXHxnGZvGMU0i2kW0+xtmsUki+hxN1tNuoVE8qhkCuYalcFo0E2P
+        68dE+r4/b25mkqnJdpDPpGi7vfWn/eNUsHVtNQrmm/xGdYu3I9lloXxHkl0n
+        xgeT7NQ4YrYrtYaZliNztj4OQq8YLckuu3hBsteNYpLFJItJFpPsvUjWA3U1
+        XPvFSRPmp+tDuEWn8tzZVRatPV2GpWmuoxppuu42jw/9TW/hw+DQOuVT89R2
+        Ut2lvMQNSXZRKN+TZFeJ8cGbkP0MaNq+DFabPWg2BapXfAOi3YR82cVzkr1h
+        FO/8iHd+RESyTxh9vPPj/Vnmp8Ls0lXzcWq352IrCnRy9Er3A5MdoeHufhrM
+        9UNWZ7tYbysYzFqiky62vEGnMF0mMpPU7oabkC9K5Ts+LbvOjI9lGSo4zewC
+        TnMtzyetmk6DUrKRjpRlV1w8Z9kbRpGyTNtEWmOkqBDYxUwyDTUkEDHCucew
+        Tb4Jt5kyIoAAYxxlxYworKzoeDapRsQqHnSFBxlmLlKeVTDlYgoFl0ZK16bu
+        wGbrjNr03gXENkY1k9A6sXk5MtZGWxEUxgXYZR73FJXcQ1QQBq1wQs3prVn2
+        CeOPkGWfMPq/+oaamGU/zrIcScL7h/tDrdTZDPcgmITrBm6sFs2ye9wE412N
+        zSca4WUinRKtfCq1z7fKOkvrLsnVxrUkuB3LLkvlKyyjEbPsOjM++A5ju+M2
+        WifdOTUOXeBkMpswWZ1Fe4fxsosXdxhfN4qUZa5n1Uu62thE2uH2h5UUBgHk
+        CHDkuQRxA5DrACqpdonNs4FC4PxmdmqFiUjErKhJgRSjgApFjZUjh2sPcehQ
+        DxAJrUwKTbQDlGYKGGXA+Y3xSCnFXXsBFpgTwBjlzGbuEDN71mqpkEa4yqCb
+        f9DBJ4w/QpZ9wuj/8i5GFrPsR1lWKXaOJSfL1hU/FaQ76V6j71CZ7Hsom1s1
+        7aQKKn566B+T093JXU27yJSn/coYjR54ye2lBrdj2WWpfIVlOOp7jFeZ8cEs
+        g8eHYzHcV8JF51ioZpxk8uRVo2XZZRcvWPa6UcyymGUxy2KWvR/LBnvaGxxr
+        0+y6jJXCme7YNym23FTociaOk3kZKaKC6WyUnZPG8mG4LYAk3G6DnV/cMmfk
+        3pBlF6XyPVl2lRkfyzLgjCYsP0c+7vYXq87DmA+d4S5Sll1x8ZxlbxjFLItZ
+        FrMsZtn7sQyWdt1WMrvbLxe1UZnPeuFRdE7Tqds4+KneuFRMdQuqcY8gHLX6
+        OdksLE8p0ZGpHK81Rrp4w70fl6XyHVl2nRkfXJeBenG4Kdd1s3fsLTqFmdwl
+        Bw/R1mWXXbyoy143ilkWsyxmWcyy92PZbO2O0WaRza9PPOjOOsWOn880SKLo
+        n2gzU8iuiseDm+/27jNC8hpZ9ae1fqWK57tWLcGTOnfDuuyiVL5nXXaVGR9c
+        ly3LSuYntBqw3MzgmVziBx3tl01dcfGiLnvdKGZZzLKYZTHL3o9lQb6Q4+2i
+        J8TYWd0X+G4+2rJKe6qqD5nT/XCQX23a0xYkpo11femfdn2/PfP33VnBNIYJ
+        nrlhXXZRKt+zLrvKjA/ex3hycaXbT/JiNbvung5VPOALGe0+xssunrPsDaNI
+        WeZ4wngYe9BjjmM8bqRzfquRAcIwjbQroeM5DmLMQ9CzQkSAIp6LsKAcYyY9
+        gSjT0HWEIfr8MUccGkgpRBq4BjEgNHSwlUVt5Y0STQhB1HHJ+YORiEYYaMyZ
+        Ovs+X0Iwga7mNrfTlHvA4RTdfE/+J4w/QpZ9wuj/DMvCzXISfr2rFGOYRQOz
+        dpAsrk7l3uS+42cHydaBrUanRqtu7vN1HM48h+0n2SwdVcl9c13wk+tFkK6U
+        ZDLYrNan+3n9hhsZL2rlK28wi3pT/nVofPBHWAX9qTvfjbM0P88siu3SIJX1
+        o/32wSsunsPsDaMYZjHMYpjFMHtHmN0fSgL4cJKTAa+acWPFy8OROXRhNiir
+        lKyNVH3XZwHtArXJLPzCghwroNVopntjvuiWbvht2Je18h1hdh0aT1P0y+MX
+        3j9WhY9L84tvJ9zfj/hfS2MCHf4MnX8+Nmz/eOzzl1+Pnxv+1c1qo3eT5fZx
+        tP3tfP548LdxAIT845f/AwAA//8DAGbrs4TYfwAA
+    http_version: 
+  recorded_at: Wed, 20 Jan 2016 22:39:59 GMT
+recorded_with: VCR 3.0.0

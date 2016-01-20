@@ -27,7 +27,7 @@ class SpotifyServiceTest < ActiveSupport::TestCase
           {"token"=>
             "BQCdnOSGI47FV9Pu5AJmbq7o0w1C8Sop2lDSV5RpUYFtYaPCx0dIUlD702NOqvgmewML4kUq2h7NUhUX-YEgap_MSpl5-0hivO7ypwQ-hQvTV9An5vG5_XoMbm9pnsi1NraHzeQD0LuVaFLdnwWBi_DOl-zY6Sb14IPoq1DuJfP2iSqEEW2n6ffCK5v0TXFN1D1oiksfkgO7Z7-euN5tg7bRpERnJON_DieCiMDlfMqt3-vsAEpGPXPZsdWw2YIEo7FeewsOK98TjFhY_iofKfwMWllX9AATkZ0lEpHInvkjizv2x-HP",
              "refresh_token"=>"AQA88LaUbIGXFaBPVeAOzIoMN4Ow7uR_sZaVCou0yOhY0hlc7x4ewr4vOHI9FDTTvAJN4rDfcjNM2O6ESzZgDqpZWGBUN1KwxwRksRd-_ropxvSYnaQCF14OzyH4j4avUGY",
-             "expires_at"=>1452725196,
+             "expires_at"=>2452725196,
              "expires"=>true},
          "extra"=>{}}
   end
@@ -52,33 +52,58 @@ class SpotifyServiceTest < ActiveSupport::TestCase
     tracks = ["Blackbird", "Hotline Bling", "What do you mean?", nil, "Hello"]
     cleaned_tracks = service.clean_tracks(tracks)
 
-    assert_equal ["Blackbird", "Hotline Bling", "What do you mean?","Hello"],
+    assert_equal ["Blackbird", "Hotline Bling", "What do you mean?", "Hello"],
+      cleaned_tracks
+  end
+
+  test "#clean_tracks on removes nil tracks" do
+    tracks = ["Blackbird", "Hotline Bling", "What do you mean?", "Hello"]
+    cleaned_tracks = service.clean_tracks(tracks)
+
+    assert_equal ["Blackbird", "Hotline Bling", "What do you mean?", "Hello"],
       cleaned_tracks
   end
 
   test "#total_artists_followed" do
-    # VCR.use_cassette("spotify_service#user") do
+    VCR.use_cassette("spotify_service#user") do
 
       assert_equal 20, service.total_artists_followed
+    end
   end
 
   test "#following?" do
-    # VCR.use_cassette("spotify_service#user") do
+    VCR.use_cassette("spotify_service#following") do
 
       assert_equal true, service.following?("Sean Rowe").first
+    end
   end
 
   test "#playlists" do
-    assert service.playlists
-    assert_kind_of Array, service.playlists
-    refute service.playlists.count.nil?
+    VCR.use_cassette("spotify_service#playlists") do
+
+      assert service.playlists
+      assert_kind_of Array, service.playlists
+      refute service.playlists.count.nil?
+      assert service.playlists.first.name.include?("Koncert")
+    end
   end
 
-  # test "#create_playlist" do
-  #   number_of_playlists = service.playlists.count
-  #
-  #   service.create_playlist("Title")
-  #   assert_equal number_of_playlists + 1, service.playlists.count
-  # end
+  test "#find_playlist" do
+    VCR.use_cassette("spotify_service#find_playlist") do
+
+      playlist = service.find_playlist("heyitsroon", "5IKwTyag2hi4ystmKGWT83")
+
+      assert_equal "Ghost B.C. – Meliora", playlist.name
+      assert_equal "5IKwTyag2hi4ystmKGWT83", playlist.id
+    end
+  end
+
+  test "#create_playlist" do
+    VCR.use_cassette("spotify_service#create_playlist") do
+      service.create_playlist("Koncert Test Title")
+
+      assert_equal "Koncert Test Title", service.playlists.first.name
+    end
+  end
 
 end
