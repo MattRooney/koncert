@@ -1,15 +1,12 @@
-<div id="profile-card" class="row">
-  <div class="col s5">
-    <div class="center card trans-card white-text">
-      <div id="ajax-profile">
-
-      </div>
-      <%= link_to "Generate a New Playlist", new_playlist_path, class: "btn-large cyan accent-2 black-text" %>
-      <br></br>
-      <%= link_to "Your Koncert Playlists", playlists_path, class: "btn-large cyan accent-2 black-text" %>
-      <br></br>
-    </div>
+<div class="row">
+  <%= render partial: "partials/profile" %>
+    <%= link_to "Generate a New Playlist", new_playlist_path, class: "btn-large cyan accent-2 black-text" %>
+    <br></br>
+    <%= link_to "Your Koncert Playlists", playlists_path, class: "btn-large cyan accent-2 black-text" %>
+    <br></br>
   </div>
+</div>
+
 
   <div id="on-sale-card" class="col s7">
     <ul class="collection">
