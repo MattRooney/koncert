@@ -106,4 +106,33 @@ class SpotifyServiceTest < ActiveSupport::TestCase
     end
   end
 
+  test "#top_tracks" do
+    VCR.use_cassette("spotify_service#top_tracks") do
+      track = service.top_tracks(["Rick Astley"]).first
+
+      assert_equal "Never Gonna Give You Up", track.name
+    end
+  end
+
+  test "#clean_artists" do
+    VCR.use_cassette("spotify_service#clean_artists") do
+      artists = service.clean_artists(["Rick Astley", "Andrew Carmer, Turing Instructor"])
+
+      assert_equal 1, artists.count
+      assert_equal "Rick Astley", artists.first
+    end
+  end
+
+  test "#add_tracks" do
+    VCR.use_cassette("spotify_service#add_tracks") do
+
+      playlist = service.find_playlist("heyitsroon", "5IKwTyag2hi4ystmKGWT83")
+      assert_equal 'Deus In Absentia', playlist.tracks.last.name
+
+      tracks = [service.top_tracks(["Rick Astley"]).first]
+      service.add_tracks(playlist, tracks)
+
+      assert_equal "Never Gonna Give You Up", playlist.tracks.last.name
+    end
+  end
 end

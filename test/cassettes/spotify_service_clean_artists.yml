@@ -1,0 +1,132 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.spotify.com/v1/search?limit=20&offset=0&q=Rick%20Astley&type=artist
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer BQBwSBSBqG4ZRluJvpe5ebEHx8AB4A6v3lfsSfS_7yn3hjTBREDUYIFrEz7v_aWwSJIwgMVA_zW9RN02udOPhg
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 20 Jan 2016 22:47:36 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Cache-Control:
+      - public, max-age=7200
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type
+      Content-Encoding:
+      - gzip
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAALSVS2+bQBDH7/kUiIMvtcKy7AMsWVWrVsqlVRM3uVRVtSyz
+        9qoYCKzjuJG/e3iZYNePuEqPO7vM/OY/D54uLMsWudGFKWxrZD2V59Iyy0FV
+        R3tmTFaMHEdk+rLIUqPV6lKmc+fBdQoQuZy9v19AvhrfaPn73YfCxLAapEoV
+        YMZoEOu5NmOMBmaVwbiJYg+bCNrAvI74o41Z2uDRQJ6I+Ncij3s09V0bfAsq
+        zSDZompCOGj6uLqamNviPvsiops79Em718Zuna2Hm3gqjeN0CflurE32ySKO
+        hy9mkxoRV3ZKSYD/8jaFJIc2pZ+d9TVKtvof4u586aj2dPLZXExhR9uKBPR0
+        ZiozZ0EvrVLsLcAST0ZJyebUjhwcAWKSRkhwX0Qh86UQnCAZhUJS7hMWYBpG
+        Uto9n0sdmVnl1UUIdUrtpym1PIPGL1kEA0UUDkgILgWEZKBCIhClXiDAw1xx
+        Eu6lYeQUjEvJGTCuy4EJBD5nEEYQhggpqjDjWCmJPRYy6QtMYS8MfoUy55Qp
+        8MuyYE4UV4HENPC4x0t1SCAJYoEX0khyj3gHhNmg9Fo3EXOoQ1bDbTXD/dJl
+        WZotYpFrU88kQ91FNez1Z1sDX2ega3vb/aPmfnRsWnvKvNl28CCQWXb9DX+e
+        fYW7P5Or5Xxyq95uO/j/YTMcYN7dDCef9TbD8Tpb33MdLgxYH0USHSr6v9f8
+        WA26FrTr/0czKq0lKZtgW3u7+dv0cOwshwedLoqdh12BqtW9vlg/AwAA//8D
+        AKWxFYD7BgAA
+    http_version: 
+  recorded_at: Wed, 20 Jan 2016 22:47:36 GMT
+- request:
+    method: get
+    uri: https://api.spotify.com/v1/search?limit=20&offset=0&q=Andrew%20Carmer,%20Turing%20Instructor&type=artist
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer BQBwSBSBqG4ZRluJvpe5ebEHx8AB4A6v3lfsSfS_7yn3hjTBREDUYIFrEz7v_aWwSJIwgMVA_zW9RN02udOPhg
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 20 Jan 2016 22:47:36 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Cache-Control:
+      - public, max-age=7200
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type
+      Content-Encoding:
+      - gzip
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAFyOPw+CMBBHdz9F00QWDEVGEmIMk7ubcWjwKk2grdcrSgjf
+        Xf65OL6Xl/vdsGOMSyTtyXOWs2HiydQIakZeEzmfCyGdTryzpFWfVLYV3VF4
+        kFjVp1cA7IuzeSC841JiC7jPyvgaUJtnfDGeMFRkMbJKeaAijRrdaiqyNKLe
+        QbGO88M6rAna5ZEbu29qyWeVpZsx8FmECU2zqfX4LH+RQ+i0Df4vJEuyWbqJ
+        x934BQAA//8DAKnWu5ABAQAA
+    http_version: 
+  recorded_at: Wed, 20 Jan 2016 22:47:36 GMT
+recorded_with: VCR 3.0.0

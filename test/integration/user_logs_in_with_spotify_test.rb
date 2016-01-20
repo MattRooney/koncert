@@ -28,4 +28,16 @@ class UserLogsInWithSpotifyTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "logged in user sees shows on sale soon in their area" do
+    login_user
+
+    assert page.has_content? "On Sale Soon"
+
+    within("#on-sale-card") do
+      first(".avatar") do
+        assert page.has_content?("CO")
+      end
+    end
+  end
+
 end
