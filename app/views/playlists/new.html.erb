@@ -16,7 +16,7 @@
           <%= form_for Playlist.new, url: { action: "create" } do |f| %>
             <%= f.label :location, "City, ST" %>
             <%= f.text_field :location, id: "playlist-location" %>
-            <%= f.submit "Generate Playlist ", id: "create-playlist", class: "btn-large cyan accent-2 black-text" %>
+            <%= f.submit "Generate Playlist ", id: "ajax-create-playlist", class: "btn-large cyan accent-2 black-text" %>
           <% end %>
           <br></br>
         </div>
@@ -24,4 +24,3 @@
     </div>
   </div>
 </div>
-<div class="modal"><!-- Place at bottom of page --></div>
