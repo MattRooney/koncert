@@ -12,7 +12,7 @@
       <h4>Enter a City and State<br> to create a playlist</h4>
 
       <div class="row">
-        <div class="col s6 offset-s3 input-field">
+        <div class="col s8 offset-s2 input-field">
           <%= form_for Playlist.new, url: { action: "create" } do |f| %>
             <%= f.label :location, "City, ST" %>
             <%= f.text_field :location, id: "playlist-location" %>

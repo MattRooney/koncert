@@ -2,6 +2,9 @@ body {
   background: image-url("background_one.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-color: #464646;
 }
 .profile_img {
   width: 80px;
