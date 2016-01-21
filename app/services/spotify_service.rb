@@ -6,7 +6,11 @@ class SpotifyService
   end
 
   def profile_image
-    client.images.first["url"]
+    if client.images.empty?
+      "spotify.png"
+    else
+      client.images.first["url"]
+    end
   end
 
   def total_followers

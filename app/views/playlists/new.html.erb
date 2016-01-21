@@ -1,19 +1,28 @@
 <div class="row">
-  <div class="col s8 offset-s2">
-    <div class="card trans-card white-text">
+  <%= render partial: "partials/profile" %>
+    <%= link_to "View Your Profile", current_user, class: "btn-large cyan accent-2 black-text" %>
+    <br></br>
+    <%= link_to "Your Koncert Playlists", playlists_path, class: "btn-large cyan accent-2 black-text" %>
+    <br></br>
+  </div>
+</div>
+  <div class="col s7">
+    <div class="card trans-card white-text center">
       <br>
-      <h4>Enter a city to create a playlist</h4>
+      <h4>Enter a City and State<br> to create a playlist</h4>
 
       <div class="row">
         <div class="col s6 offset-s3 input-field">
           <%= form_for Playlist.new, url: { action: "create" } do |f| %>
             <%= f.label :location, "City, ST" %>
-            <%= f.text_field :location %>
-            <%= f.submit "Generate Playlist ", class: "btn-large cyan accent-2 black-text" %>
+            <%= f.text_field :location, id: "playlist-location" %>
           <% end %>
+          <%= button_tag "Generate Playlist ", id: "ajax-create-playlist", class: "btn-large cyan accent-2 black-text" %>
           <br></br>
         </div>
       </div>
     </div>
   </div>
+<div id="new-playlist">
+
 </div>

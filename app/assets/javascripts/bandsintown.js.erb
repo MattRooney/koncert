@@ -1,0 +1,48 @@
+$(document).ready(function() {
+  fetchLocation()
+})
+
+function fetchLocation() {
+  navigator.geolocation.getCurrentPosition(function(position){
+
+    var latitude = (position.coords.latitude).toFixed(2)
+    var longitude = (position.coords.longitude).toFixed(2)
+
+    fetchOnSaleEvents(latitude, longitude)
+  })
+}
+
+function fetchOnSaleEvents(lat, lon) {
+  $.ajax({
+    type: 'GET',
+    crossDomain: true,
+    dataType: "jsonp",
+    url: 'http://api.bandsintown.com/events/search.json?location='+lat+',%20'+lon+'&app_id=KONCERT',
+    success: function(events) {
+      $.each(events, function(index, event) {
+        $('#latest-events').append(
+          '<li class="collection-item avatar trans-card white-text">'+
+            '<div class="row">'+
+              '<div class="col s7 center">' +
+                '<span class="title">' +
+                event.artists.shift().name +
+                '</span>' +
+                '<p>' +
+                event.venue.name + '<br>' +
+                event.venue.city + ', ' + event.venue.region + '<br>' +
+                Date(parseInt(event.datetime)) +
+                '<p>' +
+              '</div>' +
+              '<div class="col s1">'+
+              '<a class="btn cyan accent-2 black-text" href="' + event.ticket_url + '">Tickets</a>'+
+              '</div>' +
+            '</div>' +
+          '</li>'
+        )
+      })
+    },
+    error:  function(xhr) {
+      console.log(xhr.responseText)
+    }
+  })
+}

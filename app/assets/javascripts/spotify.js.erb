@@ -1,0 +1,177 @@
+$(document).ready(function() {
+  fetchProfile()
+  fetchSpotifyPlaylists()
+  fetchPlaylist()
+})
+
+$('#play-button').ready(function() {
+  autoPlay()
+})
+
+$('#ajax-create-playlist').on("click", function() {
+  fetchPlaylistLocation($('#playlist-location').val())
+})
+
+function autoPlay() {
+  document.getElementById('play-button').click();
+}
+
+function fetchProfile() {
+  $.get("/current", function(currentUser) {
+    $.ajax({
+      type: "GET",
+      url:"https://api.spotify.com/v1/me",
+      headers: {'Authorization' : 'Bearer ' + currentUser.oauth_token },
+      success: function(user) {
+        var defaultImageUrl = 'http://www.tunecore.com/images/music_stores/spotify_logo.png';
+        var profImageUrl;
+        if (!user.images[0]) {
+          profImageUrl = defaultImageUrl;
+        } else {
+          profImageUrl = user.images[0].url;
+        }
+        $('#ajax-profile').append(
+          '<div class="row">'+
+            '<div class="col s4">' +
+              '<img src="' + profImageUrl + '" class="circle profile_img">' +
+            '</div>' +
+            '<div class="col s2 profile-name">' +
+              '<h4>' + user.id + '</h4>' +
+            '</div>' +
+          '</div>' +
+          '<h5 class="neg-margin">Followers: ' + user.followers.total + '</h5>' +
+          '<br>' +
+          '<iframe src="https://embed.spotify.com/?uri=spotify:track:0F0MA0ns8oXwGw66B2BSXm" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>' +
+          '<br>'
+        );
+      },
+      error: function(xhr) {
+        console.log(xhr.responseText)
+      }
+    })
+  })
+}
+
+function fetchSpotifyPlaylists() {
+  $.get("/current", function(currentUser) {
+    $.ajax({
+      type: "GET",
+      url:"https://api.spotify.com/v1/me/playlists",
+      headers: {'Authorization' : 'Bearer ' + currentUser.oauth_token },
+      success: function(responseObject) {
+        var playlists = responseObject.items
+        $.each(playlists, function(index, playlist) {
+          $('#ajax-playlists').append(
+            '<div id="playlist-link">' +
+              '<a href="/playlists/' + playlist.id + '">'+ playlist.name +'</a>' +
+            '</div><br>'
+          )
+        })
+      },
+      error: function(xhr) {
+        console.log(xhr.responseText)
+      }
+    })
+  }
+)}
+
+
+function fetchPlaylistLocation(location) {
+  var city = location;
+  var city_param = city.replace(/ /g, "%20");
+  var date = new Date();
+  var day = date.getDate();
+  var month = date.getMonth();
+
+  $.get("/current", function(currentUser) {
+    $.ajax({
+      type: "POST",
+      url:"https://api.spotify.com/v1/users/"+ currentUser.spotify_id + "/playlists",
+      headers: {'Authorization' : 'Bearer ' + currentUser.oauth_token, 'Content-Type' : 'application/json' },
+      data: "{\"name\":\"Koncert " + city + " " + month + "-" + day + "\", \"public\":false}",
+      success: function(playlist) {
+        var playlistId = playlist.id
+        fetchArtists(city_param, playlistId);
+        setTimeout(renderSpotifyPlaylistLink(playlistId) , 10000);
+      },
+      error: function(xhr) {
+        console.log(xhr.responseText)
+      }
+    })
+  }
+
+)}
+
+function fetchArtists(location, id){
+  $.ajax({
+    type: 'GET',
+    crossDomain: true,
+    dataType: "jsonp",
+    url: 'http://api.bandsintown.com/events/search.json?location='+location+'&app_id=KONCERT',
+    success: function(events){
+      $.each(events, function(index, event) {
+        fetchSpotifyArtist(event.artists[0].name, id)
+      })
+    },
+    error: function(xhr) {
+      console.log(xhr.responseText)
+    }
+  })
+}
+
+function fetchSpotifyArtist(artist, id) {
+  var searchArtist = artist.replace(/ /g, "%20");
+  $.ajax({
+    type: "GET",
+    url: 'https://api.spotify.com/v1/search?q='+ searchArtist +'&type=artist',
+    success: function(responseObject) {
+      if (responseObject.artists.items[0]) {
+        findTopTrack(responseObject.artists.items[0].id, id)
+      } else {}
+    },
+    error: function(xhr) {
+      console.log(xhr.responseText)
+    }
+  })
+}
+
+function findTopTrack(artist, id){
+  $.ajax({
+    type: "GET",
+    url: "https://api.spotify.com/v1/artists/"+artist+"/top-tracks?country=US",
+    success: function(tracks_collection) {
+      addTrackToPlaylist(tracks_collection.tracks[0], id)
+    },
+    error: function(xhr) {
+      console.log(xhr.responseText)
+    }
+  })
+}
+
+function addTrackToPlaylist(track, id){
+  var playlistId = id;
+  var trackId = track.id;
+  $.get("/current", function(currentUser) {
+    $.ajax({
+      async: false,
+      type: "POST",
+      url: "https://api.spotify.com/v1/users/"+currentUser.spotify_id+"/playlists/"+playlistId+"/tracks?uris=spotify%3Atrack%3A"+trackId+"",
+      headers: {'Authorization': 'Bearer ' + currentUser.oauth_token, 'Accept': 'application/json' },
+      success: function(response){
+        console.log(response);
+      },
+      error: function(xhr) {
+        console.log(xhr.responseText);
+      }
+    })
+  })
+}
+
+function renderSpotifyPlaylistLink(id) {
+  var playlistId = id
+  $('#new-playlist').append(
+    '<div id="playlist-link center">' +
+      '<a class="btn-large cyan accent-2 black-text" href="/playlists/' + playlistId + '">View Your New Playlist!</a>' +
+    '</div><br>'
+  )
+}

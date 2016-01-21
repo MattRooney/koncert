@@ -2,8 +2,6 @@
 <html>
 <head>
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-  <link type="text/css" rel="stylesheet" href="stylesheets/custom.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Koncert</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -14,14 +12,12 @@
   <%= render partial: "partials/navbar" %>
 
   <div class="container">
-    <div class="center">
   <%= yield %>
-    </div>
   </div>
 
   <!--Import jQuery before materialize.js-->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="javascripts/materialize.min.js"></script>
   <%= javascript_include_tag 'application' %>
 </body>
 </html>
