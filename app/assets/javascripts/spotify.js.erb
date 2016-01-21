@@ -143,9 +143,9 @@ function addTrackToPlaylist(track, id){
   $.get("/current", function(currentUser) {
     $.ajax({
       type: "POST",
-      url: "https://api.spotify.com/v1/users/"+currentUser.spotify_id+"/playlists/"+playlistId+"/tracks?uris=spotify%3Atrack%"+trackId ,
-      headers: {'Authorization' : 'Bearer ' + currentUser.oauth_token, 'Accept' : 'application/json' },
-      success: function(playlist){
+      url: "https://api.spotify.com/v1/users/"+currentUser.spotify_id+"/playlists/"+playlistId+"/tracks?uris=spotify%3Atrack%3A"+trackId+"",
+      headers: {'Authorization': 'Bearer ' + currentUser.oauth_token, 'Accept': 'application/json' },
+      success: function(response){
         renderSpotifyPlaylist(playlistId)
       },
       error: function(xhr) {
