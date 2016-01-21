@@ -13,7 +13,7 @@ class BandsInTownService
   def playlist_events(location)
     url_location = location.gsub(" ", "%20")
     events = parse_json(connection.get("events/search.json?location=#{url_location}&app_id=KONCERT"))
-    events.first(5)
+    events.uniq
   end
 
   def artists(events)
