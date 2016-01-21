@@ -12,6 +12,12 @@ $('#ajax-create-playlist').on("click", function() {
   fetchPlaylistLocation($('#playlist-location').val())
 })
 
+$(".playlist-location").on("keypress", function (e) {
+    if (e.keyCode == 13) {
+        return false;
+    }
+})
+
 function autoPlay() {
   document.getElementById('play-button').click();
 }
@@ -94,16 +100,25 @@ function fetchSpotifyPlaylists() {
 function fetchPlaylistLocation(location) {
   var city = location;
   var city_param = city.replace(/ /g, "%20");
-  var date = new Date();
-  var day = date.getDate();
-  var month = date.getMonth();
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth()+1; //January is 0!
+  var yyyy = today.getFullYear();
+
+  if(dd<10) {
+      dd='0'+dd
+  }
+  if(mm<10) {
+      mm='0'+mm
+  }
+  today = mm+'-'+dd+'-'+yyyy;
 
   $.get("/current", function(currentUser) {
     $.ajax({
       type: "POST",
       url:"https://api.spotify.com/v1/users/"+ currentUser.spotify_id + "/playlists",
       headers: {'Authorization' : 'Bearer ' + currentUser.oauth_token, 'Content-Type' : 'application/json' },
-      data: "{\"name\":\"Koncert " + city + " " + month + "-" + day + "\", \"public\":false}",
+      data: "{\"name\":\"Koncert " + city + " " + today + "\", \"public\":false}",
       success: function(playlist) {
         var playlistId = playlist.id
         fetchArtists(city_param, playlistId);
