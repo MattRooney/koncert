@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   get '/current', to: "users#current"
   resources :users, only: [:show]
   resources :playlists
+
+  get '*unmatched_route', to: 'application#not_found'
 end
