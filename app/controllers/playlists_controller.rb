@@ -9,7 +9,7 @@ class PlaylistsController < ApplicationController
   end
 
   def create
-    redirect_to playlist_path()
+    # redirect_to playlist_path()
     # events = bandsintown_service.events(params[:playlist][:location])
     # artists = bandsintown_service.artists(events)
     # spotify_artists = spotify_service.clean_artists(artists)
