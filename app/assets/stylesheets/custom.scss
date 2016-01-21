@@ -16,6 +16,7 @@ body {
 }
 .neg-margin {
   margin-bottom: 10px;
+  padding-bottom: 10px;
 }
 .trans-card {
   background: rgb(54, 25, 25); /* Fall-back for browsers that don't support rgba */
@@ -63,4 +64,19 @@ body.loading {
    modal element will be visible */
 body.loading .modal {
     display: block;
+}
+.nav-marg {
+  margin-right: 90px;
+  margin-left: 90px;
+}
+#primary-navigation {
+  margin-bottom: 70px;
+}
+.custom-container {
+  margin-left: 90px;
+  margin-right: 90px;
+}
+.list-link {
+  padding-top: 40px !important;
+  margin-right: 30px;
 }

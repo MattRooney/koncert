@@ -40,9 +40,9 @@ function fetchProfile() {
             '</div>' +
           '</div>' +
           '<h5 class="neg-margin">Followers: ' + user.followers.total + '</h5>' +
-          '<br>' +
+          '<br><br>' +
           '<iframe src="https://embed.spotify.com/?uri=spotify:track:0F0MA0ns8oXwGw66B2BSXm" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>' +
-          '<br>'
+          '<br><br>'
         );
       },
       error: function(xhr) {
@@ -61,10 +61,25 @@ function fetchSpotifyPlaylists() {
       success: function(responseObject) {
         var playlists = responseObject.items
         $.each(playlists, function(index, playlist) {
+          var defaultImageUrl = 'http://www.tunecore.com/images/music_stores/spotify_logo.png';
+          var imageUrl;
+          if (!playlist.images[0]) {
+            imageUrl = defaultImageUrl;
+          } else {
+            imageUrl = playlist.images[0].url;
+          }
           $('#ajax-playlists').append(
-            '<div id="playlist-link">' +
-              '<a href="/playlists/' + playlist.id + '">'+ playlist.name +'</a>' +
-            '</div><br>'
+            '<li class="collection-item avatar trans-card white-text">'+
+              '<div class="row">'+
+                '<div class="col s6 list-link">' +
+                  '<span class="title">' + playlist.name +
+                  '</span>' +
+                  '</div>' +
+                  '<div class="col s1">'+
+            '<a href="/playlists/' + playlist.id + '">' + '<img src='+ imageUrl + ' height="100" width="100"></a>'+
+            '</div>' +
+          '</div>' +
+        '</li>'
           )
         })
       },
@@ -170,8 +185,10 @@ function addTrackToPlaylist(track, id){
 function renderSpotifyPlaylistLink(id) {
   var playlistId = id
   $('#new-playlist').append(
-    '<div id="playlist-link center">' +
-      '<a class="btn-large cyan accent-2 black-text" href="/playlists/' + playlistId + '">View Your New Playlist!</a>' +
-    '</div><br>'
+    '<div class="center card trans-card white-text"<br><br><br>'+
+      '<div id="playlist-link center">' +
+        '<a class="btn-large cyan accent-2 black-text" href="/playlists/' + playlistId + '">View Your New Playlist!</a>' +
+      '</div><br><br>' +
+    '</div>'
   )
 }
