@@ -6,6 +6,8 @@
     <div class="show-playlist">
       <iframe src="https://embed.spotify.com/?uri=<%= @playlist.uri %>" width="350" height="600" frameborder="0" allowtransparency="true"></iframe>
     </div>
+    <%= link_to "Back to Your Playlists", playlists_path, class: "btn-large cyan accent-2 black-text center" %>
+    <br>
   </div>
 
   <div class="col s7 offset-s1">
