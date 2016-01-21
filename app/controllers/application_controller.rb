@@ -21,4 +21,6 @@ class ApplicationController < ActionController::Base
     @bandsintown_service ||= BandsInTownService.new
   end
 
+  def not_found
+  end
 end
