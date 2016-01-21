@@ -3,98 +3,9 @@ $(document).ready(function() {
   fetchSpotifyPlaylists()
 })
 
-$('#ajax-create-playlist').click(function() {
-  createPlaylist()
+$('#ajax-create-playlist').on("click", function() {
+  fetchPlaylistLocation($('#playlist-location').val())
 })
-
-function createPlaylist() {
-  var city = $('#playlist-location').val();
-  var city_param = param.replace(/ /g, "%20");
-  var date = new Date();
-  var day = date.getDate();
-  var month = date.getMonth();
-
-  $.get("/current", function(currentUser) {
-    $.ajax({
-      type: "POST",
-      url:"https://api.spotify.com/v1/users/"+ currentUser.spotify_id + "/playlists",
-      headers: {'Authorization' : 'Bearer ' + currentUser.oauth_token },
-      headers: {'Content-Type' : 'application/json' },
-      data: "{\"name\":\"Koncert " + city + " " + month + "-" + day + "\", \"public\":false}",
-      success: function(playlist) {
-        debugger
-      },
-      error: function(xhr) {
-        console.log(xhr.responseText)
-      }
-    })
-  }
-)}
-
-
-  // var spotify_artists = fetchSpotifyArtists(artists)
-  // var top_tracks = fetchTopTracks(spotify_artists)
-  // var spotify_tracks = cleanTopTracks(top_tracks)
-  // var spotify_playlist = initializePlaylist(spotify_tracks)
-  // var playlist = addTracks(spotify_playlist, spotify_tracks)
-  // renderEvents(events)
-  // renderPlaylist(playlist)
-  }
-
-function fetchSpotifyArtists(artists) {
-  $.each(artists, function(index, artist) {
-    $.ajax({
-      type: "GET",
-      url: "https://api.spotify.com/v1/search?q="+ artist +"&type=artist",
-    })
-  })
-}
-
-// function fetchArtistArray(city) {
-//   var location = city
-//   $.ajax({
-//     type: 'POST', // add track to playlist created at line 40
-//     authorization: ,
-//     dataType: ,
-//     name: ,//first create spotify playlist\\})
-//     $.ajax({
-//       type: 'GET',
-//       crossDomain: true,
-//       dataType: "jsonp",
-//       url: 'http://api.bandsintown.com/events/search.json?location='+location+'&app_id=KONCERT',
-//       success: function(events) {
-//         $.each(events, function(index, event) {
-//           var artist = event.artists.shift().name
-//           $.ajax({
-//             type: 'GET',
-//             crossDomain: true,
-//             url: "https://api.spotify.com/v1/search?q=" + artist + "&type=artist",
-//             success: function(artist) {
-//               var id = artist.id
-//               $.ajax({
-//                 type: 'GET',
-//                 crossDomain: true,
-//                 url: "https://api.spotify.com/v1/artists/"+id+"/top-tracks?country=US",
-//                 success: function(tracks) {
-//                   var track = tracks.shift()
-//                   $.ajax({
-//                     type: 'POST', // add track to playlist created at line 40
-//                     authorization: ,
-//                     dataType: ,
-//                     name: ,
-//                   })
-//                 }
-//               })
-//             }
-//           })
-//         }
-//       )},
-//       error: function(xhr) {
-//         console.log(xhr.responseText)
-//       }
-//     })
-//   })
-// }
 
 function fetchProfile() {
   $.get("/current", function(currentUser) {
@@ -105,7 +16,7 @@ function fetchProfile() {
       success: function(user) {
         var defaultImageUrl = 'http://www.tunecore.com/images/music_stores/spotify_logo.png';
         var profImageUrl;
-        if (! user.images[0]) {
+        if (!user.images[0]) {
           profImageUrl = defaultImageUrl;
         } else {
           profImageUrl = user.images[0].url;
@@ -154,3 +65,98 @@ function fetchSpotifyPlaylists() {
     })
   }
 )}
+
+
+function fetchPlaylistLocation(location) {
+  var city = location;
+  var city_param = city.replace(/ /g, "%20");
+  var date = new Date();
+  var day = date.getDate();
+  var month = date.getMonth();
+
+  $.get("/current", function(currentUser) {
+    $.ajax({
+      type: "POST",
+      url:"https://api.spotify.com/v1/users/"+ currentUser.spotify_id + "/playlists",
+      headers: {'Authorization' : 'Bearer ' + currentUser.oauth_token, 'Content-Type' : 'application/json' },
+      data: "{\"name\":\"Koncert " + city + " " + month + "-" + day + "\", \"public\":false}",
+      success: function(playlist) {
+        var playlistId = playlist.id
+        fetchArtists(city_param, playlistId)
+      },
+      error: function(xhr) {
+        console.log(xhr.responseText)
+      }
+    })
+  }
+)}
+
+function fetchArtists(location, id){
+  $.ajax({
+    type: 'GET',
+    crossDomain: true,
+    dataType: "jsonp",
+    url: 'http://api.bandsintown.com/events/search.json?location='+location+'&app_id=KONCERT',
+    success: function(events){
+      $.each(events, function(index, event) {
+          fetchSpotifyArtist(event.artists[0].name, id)
+      })
+    },
+    error: function(xhr) {
+      console.log(xhr.responseText)
+    }
+  })
+}
+
+function fetchSpotifyArtist(artist, id) {
+  var searchArtist = artist.replace(/ /g, "%20");
+  $.ajax({
+    type: "GET",
+    url: 'https://api.spotify.com/v1/search?q='+ searchArtist +'&type=artist',
+    success: function(responseObject) {
+      if (responseObject.artists.items[0]) {
+        findTopTrack(responseObject.artists.items[0].id, id)
+      } else {}
+    },
+    error: function(xhr) {
+      console.log(xhr.responseText)
+    }
+  })
+}
+
+function findTopTrack(artist, id){
+  $.ajax({
+    type: "GET",
+    url: "https://api.spotify.com/v1/artists/"+artist+"/top-tracks?country=US",
+    success: function(tracks_collection) {
+      addTrackToPlaylist(tracks_collection.tracks[0], id)
+    },
+    error: function(xhr) {
+      console.log(xhr.responseText)
+    }
+  })
+}
+
+function addTrackToPlaylist(track, id){
+  var playlistId = id;
+  var trackId = track.id;
+  $.get("/current", function(currentUser) {
+    $.ajax({
+      type: "POST",
+      url: "https://api.spotify.com/v1/users/"+currentUser.spotify_id+"/playlists/"+playlistId+"/tracks?uris=spotify%3Atrack%"+trackId ,
+      headers: {'Authorization' : 'Bearer ' + currentUser.oauth_token, 'Accept' : 'application/json' },
+      success: function(playlist){
+        renderSpotifyPlaylist(playlistId)
+      },
+      error: function(xhr) {
+        console.log(xhr.responseText)
+      }
+    })
+  })
+}
+
+function renderSpotifyPlaylist(id){
+  $('#new-playlist').append(
+    '<iframe src="https://embed.spotify.com/?uri="'+ id +'" width="350" height="600" frameborder="0" allowtransparency="true"></iframe>'
+  )
+}
