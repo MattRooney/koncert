@@ -23,6 +23,10 @@ Start the Server:
 
 `rails s`
 
+To run tests:
+
+`$ rake` or `$ bundle exec rake`
+
 Visit in Browser:
 
 `http://localhost:3000`
