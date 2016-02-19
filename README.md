@@ -30,3 +30,5 @@ Visit in Browser:
 #####To run this app in production visit:
 
 `http://koncert.herokuapp.com/`
+
+![homescreen](/app/assets/images/koncert.png)
